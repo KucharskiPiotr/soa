@@ -1,0 +1,38 @@
+<div id="app">
+  <ul v-for="product in products">
+    <li>
+      {{ product.id }} - {{ product.name }}
+      <button @click="product.id += 1">Add</button>
+      <button @click="if(product.id > 0) { product.id -= 1 }">Delete</button>
+      <span v-if="product.id === 0"> - out of stock</span>
+    </li>
+  </ul>
+  <h3>Total: {{ totalA }}</h3>
+</div>
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      products: [
+        {
+          id: 0,
+          name: "asd"
+        },
+        {
+          id: 2,
+          name: "qwe"
+        }
+      ]
+    },
+    computed: {
+      totalA() {
+        return this.products.reduce((sum, product) => {
+          return sum + product.id;
+        }, 0);
+      }
+    }
+  });
+</script>
