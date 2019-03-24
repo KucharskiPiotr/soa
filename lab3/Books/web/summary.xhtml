@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form>
+        <p:dataTable widgetVar="booksTable" value="#{ShoppingCart.items}" var="book" emptyMessage="No books found" filteredValue="#{BooksDAO.filteredItems}">
+
+            <p:column headerText="Author">
+                <h:outputText value="#{book.author}" />
+            </p:column>
+
+            <p:column headerText="Title">
+                <h:outputText value="#{book.title}" />
+            </p:column>
+
+            <p:column headerText="Type">
+                <h:outputText value="#{book.type}" />
+            </p:column>
+
+            <p:column headerText="Price">
+                <h:outputText value="#{book.price.price}" >
+                    <f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" />
+                </h:outputText>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Currency"/> <br/>
+                    <p:selectOneButton value="#{BooksDAO.polishCurrency}">
+                        <f:selectItem itemLabel="PLN" itemValue="true" />
+                        <f:selectItem itemLabel="Original" itemValue="false" />
+                        <f:ajax listener="#{BooksDAO.changeCurrencyToDisplayInAllBooks}" render="@form"/>
+                    </p:selectOneButton>
+                </f:facet>
+                <h:outputText value="#{book.price.currency}" />
+            </p:column>
+
+            <p:column headerText="Pages">
+                <h:outputText value="#{book.pages}">
+                    <f:convertNumber type="number"/>
+                </h:outputText>
+            </p:column>
+
+            <f:facet name="footer">
+                <h:outputText value="Total: #{ShoppingCart.getTotalText(BooksDAO.polishCurrency)}"/> <br/>
+                <h:commandButton value="Accept Order" action="index"/>
+            </f:facet>
+        </p:dataTable>
+    </h:form>
+</h:body>
+
+</html>

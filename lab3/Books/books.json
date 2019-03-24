@@ -1,0 +1,63 @@
+{
+    "books": [{
+            "author": "Sun Tzu",
+            "title": "The Art Of War",
+            "type": "WAR",
+            "price": {
+                "price": "106.00",
+                "currency": "PLN"
+            },
+            "pages": "200"
+        },
+        {
+            "author": "Arrian",
+            "title": "The Campaigns od Alexander",
+            "type": "WAR",
+            "price": {
+                "price": "15.00",
+                "currency": "EUR"
+            },
+            "pages": "150"
+        },
+        {
+            "author": "Agatha Christie",
+            "title": "Murder on the Orient Express",
+            "type": "CRIMINAL",
+            "price": {
+                "price": "12.50",
+                "currency": "USD"
+            },
+            "pages": "180"
+        },
+        {
+            "author": "Agatha Christie",
+            "title": "Unfinished Portrait",
+            "type": "CRIMINAL",
+            "price": {
+                "price": "30.50",
+                "currency": "PLN"
+            },
+            "pages": "80"
+        },
+        {
+            "author": "Erika Lena Mitchell",
+            "title": "Fifty Shades of Grey",
+            "type": "ROMANCE",
+            "price": {
+                "price": "0.99",
+                "currency": "USD"
+            },
+            "pages": "150"
+        },
+        {
+            "author": "Erika Lena Mitchell",
+            "title": "Fifty Shades Darker",
+            "type": "ROMANCE",
+            "price": {
+                "price": "0.99",
+                "currency": "EUR"
+            },
+            "pages": "120"
+        }
+    ]
+}

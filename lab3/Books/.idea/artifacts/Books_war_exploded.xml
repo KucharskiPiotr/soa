@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Books:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Books_war_exploded.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Books/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Books" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="json-simple-1.1.1" />
+          <element id="library" level="project" name="PrimeFaces-5.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
