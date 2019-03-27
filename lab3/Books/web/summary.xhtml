@@ -12,7 +12,7 @@
 </h:head>
 <h:body>
     <h:form>
-        <p:dataTable widgetVar="booksTable" value="#{ShoppingCart.items}" var="book" emptyMessage="No books found" filteredValue="#{BooksDAO.filteredItems}">
+        <p:dataTable widgetVar="booksTable" value="#{ShoppingCart.items}" var="book" emptyMessage="No books found" filteredValue="#{ShoppingCart.items}">
 
             <p:column headerText="Author">
                 <h:outputText value="#{book.author}" />
@@ -35,10 +35,10 @@
             <p:column>
                 <f:facet name="header">
                     <h:outputText value="Currency"/> <br/>
-                    <p:selectOneButton value="#{BooksDAO.polishCurrency}">
+                    <p:selectOneButton value="#{BooksController.polishCurrency}">
                         <f:selectItem itemLabel="PLN" itemValue="true" />
                         <f:selectItem itemLabel="Original" itemValue="false" />
-                        <f:ajax listener="#{BooksDAO.changeCurrencyToDisplayInAllBooks}" render="@form"/>
+                        <f:ajax listener="#{BooksController.changeCurrencyToDisplayInAllBooks}" render="@form"/>
                     </p:selectOneButton>
                 </f:facet>
                 <h:outputText value="#{book.price.currency}" />
@@ -51,7 +51,7 @@
             </p:column>
 
             <f:facet name="footer">
-                <h:outputText value="Total: #{ShoppingCart.getTotalText(BooksDAO.polishCurrency)}"/> <br/>
+                <h:outputText value="Total: #{ShoppingCart.getTotalText(BooksController.polishCurrency)}"/> <br/>
                 <h:commandButton value="Accept Order" action="index"/>
             </f:facet>
         </p:dataTable>

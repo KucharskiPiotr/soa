@@ -1,16 +1,21 @@
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import java.util.*;
 
 public class BooksUtils {
     private Set<String> bookTypes;
     private Set<String> currencies;
 
-    public BooksUtils() {
-//        bookTypes = Arrays.asList("WAR", "CRIMINAL", "ROMANCE");
-//        currencies = Arrays.asList("EUR", "PLN", "USD");
+    private static BooksUtils instance;
+
+    private BooksUtils() {
         bookTypes = new HashSet<>();
         currencies = new HashSet<>();
+    }
+
+    public static BooksUtils getInstance() {
+        if (instance == null) {
+            instance = new BooksUtils();
+        }
+        return instance;
     }
 
     public Set<String> getBookTypes() {

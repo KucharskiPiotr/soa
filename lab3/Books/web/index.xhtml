@@ -13,7 +13,7 @@
 <h:body>
    <h:form id="booksSelect" rendered="#{!ShoppingCart.summary}">
 
-      <p:dataTable widgetVar="booksTable" value="#{BooksDAO.items}" var="book" emptyMessage="No books found" filteredValue="#{BooksDAO.filteredItems}">
+      <p:dataTable widgetVar="booksTable" value="#{BooksController.items}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}">
          
          <p:column headerText="Add to cart">
             <h:commandButton value="Add to cart" >
@@ -39,7 +39,7 @@
          <p:column filterBy="#{book.type}" filterMatchMode="in" headerText="Type">
             <f:facet name="filter">
                <p:selectCheckboxMenu label="Book types" onchange="PF('booksTable').filter()">
-                  <f:selectItems value="#{BooksDAO.booksUtils.bookTypes}"/>
+                  <f:selectItems value="#{BooksController.getBookUtils().bookTypes}"/>
                </p:selectCheckboxMenu>
             </f:facet>
             <h:outputText value="#{book.type}" />
@@ -54,10 +54,10 @@
          <p:column>
             <f:facet name="header">
                <h:outputText value="Currency"/> <br/>
-               <p:selectOneButton value="#{BooksDAO.polishCurrency}">
+               <p:selectOneButton value="#{BooksController.polishCurrency}">
                   <f:selectItem itemLabel="PLN" itemValue="true" />
                   <f:selectItem itemLabel="Original" itemValue="false" />
-                  <f:ajax listener="#{BooksDAO.changeCurrencyToDisplayInAllBooks}" render="@form"/>
+                  <f:ajax listener="#{BooksController.changeCurrencyToDisplayInAllBooks}" render="@form"/>
                </p:selectOneButton>
             </f:facet>
             <h:outputText value="#{book.price.currency}" />
