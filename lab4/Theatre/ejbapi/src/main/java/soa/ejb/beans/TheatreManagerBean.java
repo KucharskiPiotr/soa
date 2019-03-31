@@ -1,11 +1,14 @@
 package soa.ejb.beans;
 
+import soa.dao.CustomerDAO;
 import soa.dao.EventDAO;
 import soa.ejb.dto.CustomerData;
 import soa.ejb.dto.EventData;
 import soa.ejb.dto.SeatData;
 import soa.ejb.exceptions.NotEnoughFundsException;
+import soa.ejb.exceptions.SeatNotAvailableException;
 import soa.ejb.interfaces.PaymentManager;
+import soa.ejb.interfaces.local.LocalCustomerManager;
 import soa.ejb.interfaces.local.LocalPaymentManager;
 import soa.ejb.interfaces.local.LocalSeatManager;
 import soa.ejb.interfaces.local.LocalTheatreManager;
@@ -14,6 +17,7 @@ import soa.ejb.interfaces.remote.RemoteTheatreManager;
 import javax.ejb.*;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Singleton
@@ -23,6 +27,12 @@ public class TheatreManagerBean implements LocalTheatreManager, RemoteTheatreMan
 
     @EJB
     private LocalPaymentManager paymentManager;
+
+    @EJB
+    private LocalCustomerManager customerManager;
+
+    @EJB
+    private LocalSeatManager seatManager;
 
     @Override
     public List<SeatData> getSeatList(EventData event) {
@@ -35,11 +45,14 @@ public class TheatreManagerBean implements LocalTheatreManager, RemoteTheatreMan
     }
 
     @Override
-    public void buyTickets(EventData event, List<SeatData> seats, CustomerData customer) throws NotEnoughFundsException {
+    public void buyTickets(EventData event, List<SeatData> seats, CustomerData customer) throws NotEnoughFundsException, SeatNotAvailableException {
+        if (!canCustomerAffordTickets(event, customer, seats)) {
+            throw new NotEnoughFundsException();
+        }
+
         for (SeatData seat : seats) {
-            Integer price = getSeatPrice(event, seat);
-            if (customer.getBalance() >= price) {
-                paymentManager.payForSeat(customer, price);
+            if (seatManager.checkSeatAvailability(event.getId(), seat)) {
+                paymentManager.payForSeat(customer, getSeatPrice(event, seat));
                 seat.setTaken(true);
                 seat.setCustomerId(customer.getId());
                 event.getSeatsPool().stream()
@@ -52,7 +65,7 @@ public class TheatreManagerBean implements LocalTheatreManager, RemoteTheatreMan
                 EventDAO.getInstance().updateItem(event);
             }
             else {
-                throw new NotEnoughFundsException();
+                throw new SeatNotAvailableException();
             }
         }
     }
@@ -60,5 +73,11 @@ public class TheatreManagerBean implements LocalTheatreManager, RemoteTheatreMan
     @Override
     public List<EventData> getScheduledEvents() {
         return EventDAO.getInstance().getItems();
+    }
+
+    private boolean canCustomerAffordTickets(EventData event, CustomerData customer, List<SeatData> seats) {
+        AtomicInteger totalPrice = new AtomicInteger(0);
+        seats.forEach(s -> totalPrice.getAndAdd(getSeatPrice(event, s)));
+        return customerManager.getCustomerBalance(customer) >= totalPrice.get();
     }
 }

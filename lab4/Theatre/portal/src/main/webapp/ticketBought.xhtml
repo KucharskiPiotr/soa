@@ -19,9 +19,15 @@
         </h:panelGroup>
     </h:form>
     <h:form id="failure">
-        <h:panelGroup rendered="#{SeatSelection.error != null}">
+        <h:panelGroup rendered="#{SeatSelection.error != null and SeatSelection.error == 'NotEnoughFunds'}">
             <h2>Your balance is too low to buy these tickets</h2>
             <h3>Charge your TheatreAccount and try again</h3>
+        </h:panelGroup>
+    </h:form>
+    <h:form id="SeatNotAvailable">
+        <h:panelGroup rendered="#{SeatSelection.error != null and SeatSelection.error == 'SeatNotAvailable'}">
+            <h2>Seat is not available</h2>
+            <h3>Select another seat</h3>
         </h:panelGroup>
     </h:form>
     <p:commandButton value="Back to main page" action="index" />

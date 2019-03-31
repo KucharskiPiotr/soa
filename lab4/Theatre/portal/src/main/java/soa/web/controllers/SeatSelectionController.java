@@ -1,23 +1,19 @@
 package soa.web.controllers;
 
-import jdk.jfr.Event;
 import soa.ejb.dto.CustomerData;
 import soa.ejb.dto.EventData;
 import soa.ejb.dto.SeatData;
 import soa.ejb.exceptions.NotEnoughFundsException;
+import soa.ejb.exceptions.SeatNotAvailableException;
 import soa.ejb.interfaces.remote.RemoteCustomerManager;
 import soa.ejb.interfaces.remote.RemoteSeatManager;
 import soa.ejb.interfaces.remote.RemoteTheatreManager;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Named("SeatSelection")
@@ -35,15 +31,11 @@ public class SeatSelectionController implements Serializable {
 
     private EventData event;
     private CustomerData customer;
-    private List<SeatData> selectedSeats;
-    private Integer total;
     private String error;
 
     public SeatSelectionController() {
         event = null;
         customer = null;
-        selectedSeats = new ArrayList<>();
-        total = 0;
     }
 
     public void init(EventData event, CustomerData customer) {
@@ -71,55 +63,37 @@ public class SeatSelectionController implements Serializable {
         return theatreManager.getSeatList(event).stream().filter(s -> s.getGroup().equals(group)).collect(Collectors.toList());
     }
 
-    public List<SeatData> getSelectedSeats() {
-        return selectedSeats;
-    }
-
-    public void setSelectedSeats(List<SeatData> selectedSeats) {
-        this.selectedSeats = selectedSeats;
-    }
-
     public void markSeat(SeatData seat) {
-        selectedSeats.add(seat);
-        total += theatreManager.getSeatPrice(event, seat);
+        seatManager.selectSeat(seat);
     }
 
     public boolean isSeatAvailable(SeatData seat) {
-        return seatManager.checkSeatAvailability(seat);
+        return seatManager.checkSeatAvailability(event.getId(), seat);
     }
 
     public boolean isSeatMarked(SeatData seat) {
-        return selectedSeats.stream().anyMatch(s -> s.getId().equals(seat.getId()));
+        return seatManager.getSelectedSeats().stream().anyMatch(s -> s.getId().equals(seat.getId()));
     }
 
     public void unmarkSeat(SeatData seat) {
-        selectedSeats.stream()
-                .filter(s -> s.getId().equals(seat.getId()))
-                .findAny()
-                .ifPresent(tmpSeatToBeRemoved -> {
-                    total -= theatreManager.getSeatPrice(event, tmpSeatToBeRemoved);
-                    selectedSeats.remove(tmpSeatToBeRemoved);
-                });
+        seatManager.unmarkSeat(seat);
     }
 
     public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
+        return seatManager.getTotalPrice(event);
     }
 
     public void purchaseTickets() {
         try {
-            theatreManager.buyTickets(event, selectedSeats, customer);
+            theatreManager.buyTickets(event, seatManager.getSelectedSeats(), customer);
             error = null;
         } catch (NotEnoughFundsException e) {
             error = "NotEnoughFunds";
+        } catch (SeatNotAvailableException e) {
+            error = "SeatNotAvailable";
         }
         customer = customerManager.getCustomer(customer.getId());
-        selectedSeats = new ArrayList<>();
-        total = 0;
+        seatManager.endSession();
     }
 
     public String getError() {

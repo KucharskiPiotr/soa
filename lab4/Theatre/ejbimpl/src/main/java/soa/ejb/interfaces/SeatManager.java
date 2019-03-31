@@ -4,10 +4,19 @@ import soa.ejb.dto.EventData;
 import soa.ejb.dto.SeatData;
 
 import javax.ejb.Lock;
+import java.util.List;
 
 public interface SeatManager {
     @Lock
-    boolean checkSeatAvailability(SeatData seat);
+    boolean checkSeatAvailability(Integer eventId, SeatData seat);
 
-//    Integer getTotalPrice(EventData event);
+    List<SeatData> getSelectedSeats();
+
+    void selectSeat(SeatData seatData);
+
+    void unmarkSeat(SeatData seat);
+
+    void endSession();
+
+    Integer getTotalPrice(EventData event);
 }

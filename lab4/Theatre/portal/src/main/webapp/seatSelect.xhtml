@@ -71,8 +71,8 @@
         <p>
             STUDENT:
             <ui:repeat value="#{SeatSelection.getSeatsByGroup('STUDENT')}" var="seat">
-                <h:commandButton value="#{seat.id}" style="background-color: darkred;color: white;"
-                                 rendered="#{!SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"/>
+                <h:outputLabel value="#{seat.id}" style="background-color: darkred;color: white;width: 50px;padding: 2px"
+                                 rendered="#{!SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}" action=""/>
                 <h:commandButton value="#{seat.id}" style="background-color: yellow;color: black;"
                                  rendered="#{SeatSelection.isSeatAvailable(seat) and SeatSelection.isSeatMarked(seat)}">
                     <f:ajax listener="#{SeatSelection.unmarkSeat(seat)}" execute="@form" render="@form"/>
