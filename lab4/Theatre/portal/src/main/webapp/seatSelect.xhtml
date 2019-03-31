@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form>
+        <h2>Selected event:</h2>
+        <p:outputLabel value="#{SeatSelection.event.name}" /> <br/>
+        <p:outputLabel value="#{SeatSelection.event.date}" />
+        <hr/>
+        <h2>Select seat for event</h2>
+
+        <p><b>STAGE</b></p>
+
+        <p>
+            VIP:
+            <ui:repeat value="#{SeatSelection.getSeatsByGroup('VIP')}" var="seat">
+                <h:commandButton value="#{seat.id}" style="background-color: darkred;color: white;"
+                                 rendered="#{!SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"/>
+                <h:commandButton value="#{seat.id}" style="background-color: yellow;color: black;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and SeatSelection.isSeatMarked(seat)}">
+                    <f:ajax listener="#{SeatSelection.unmarkSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+                <h:commandButton value="#{seat.id}" style="background-color: green;color: white;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"  >
+                    <f:ajax listener="#{SeatSelection.markSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+            </ui:repeat>
+        </p>
+
+        <p>
+            HIGH_CLASS:
+            <ui:repeat value="#{SeatSelection.getSeatsByGroup('HIGH_CLASS')}" var="seat">
+                <h:commandButton value="#{seat.id}" style="background-color: darkred;color: white;"
+                                 rendered="#{!SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"/>
+                <h:commandButton value="#{seat.id}" style="background-color: yellow;color: black;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and SeatSelection.isSeatMarked(seat)}">
+                    <f:ajax listener="#{SeatSelection.unmarkSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+                <h:commandButton value="#{seat.id}" style="background-color: green;color: white;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"  >
+                    <f:ajax listener="#{SeatSelection.markSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+            </ui:repeat>
+        </p>
+
+        <p>
+            STANDARD:
+            <ui:repeat value="#{SeatSelection.getSeatsByGroup('STANDARD')}" var="seat">
+                <h:commandButton value="#{seat.id}" style="background-color: darkred;color: white;"
+                                 rendered="#{!SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"/>
+                <h:commandButton value="#{seat.id}" style="background-color: yellow;color: black;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and SeatSelection.isSeatMarked(seat)}">
+                    <f:ajax listener="#{SeatSelection.unmarkSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+                <h:commandButton value="#{seat.id}" style="background-color: green;color: white;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"  >
+                    <f:ajax listener="#{SeatSelection.markSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+            </ui:repeat>
+        </p>
+
+        <p>
+            STUDENT:
+            <ui:repeat value="#{SeatSelection.getSeatsByGroup('STUDENT')}" var="seat">
+                <h:commandButton value="#{seat.id}" style="background-color: darkred;color: white;"
+                                 rendered="#{!SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"/>
+                <h:commandButton value="#{seat.id}" style="background-color: yellow;color: black;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and SeatSelection.isSeatMarked(seat)}">
+                    <f:ajax listener="#{SeatSelection.unmarkSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+                <h:commandButton value="#{seat.id}" style="background-color: green;color: white;"
+                                 rendered="#{SeatSelection.isSeatAvailable(seat) and !SeatSelection.isSeatMarked(seat)}"  >
+                    <f:ajax listener="#{SeatSelection.markSeat(seat)}" execute="@form" render="@form"/>
+                </h:commandButton>
+            </ui:repeat>
+        </p>
+
+        <h3>Legend:</h3>
+        <p:outputLabel value="Taken" style="background-color: darkred; color: white;" />
+        <p:outputLabel value="Selected" style="background-color: yellow; color: black;" />
+        <p:outputLabel value="Empty" style="background-color: darkgreen; color: white;" /> <br/><br/>
+
+        <p:outputLabel value="Total: #{SeatSelection.total}" /><br/>
+        <h:commandButton value="Buy selected seats" action="ticketBought">
+            <f:ajax listener="#{SeatSelection.purchaseTickets}" />
+        </h:commandButton>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,167 @@
+{
+  "events": [
+    {
+      "name": "Chicago",
+      "id": 1,
+      "groupToPrice": [
+        {
+          "key": "VIP",
+          "value": 200
+        },
+        {
+          "key": "HIGH_CLASS",
+          "value": 120
+        },
+        {
+          "key": "STANDARD",
+          "value": 90
+        },
+        {
+          "key": "STUDENT",
+          "value": 60
+        }
+      ],
+      "date": "2019-04-01T18:00:00.000Z",
+      "seatsPool": [
+        {
+          "id": 1,
+          "group": "VIP"
+        },
+        {
+          "id": 2,
+          "group": "HIGH_CLASS"
+        },
+        {
+          "id": 3,
+          "group": "HIGH_CLASS"
+        },
+        {
+          "id": 4,
+          "group": "STANDARD"
+        },
+        {
+          "id": 5,
+          "group": "STANDARD"
+        },
+        {
+          "id": 6,
+          "group": "STUDENT"
+        }
+      ]
+    },
+    {
+      "name": "Mayday",
+      "id": 2,
+      "groupToPrice": [
+        {
+          "key": "VIP",
+          "value": 400
+        },
+        {
+          "key": "HIGH_CLASS",
+          "value": 220
+        },
+        {
+          "key": "STANDARD",
+          "value": 120
+        },
+        {
+          "key": "STUDENT",
+          "value": 60
+        }
+      ],
+      "date": "2019-04-02T18:00:00.000Z",
+      "seatsPool": [
+        {
+          "id": 1,
+          "group": "VIP"
+        },
+        {
+          "id": 2,
+          "group": "HIGH_CLASS"
+        },
+        {
+          "id": 3,
+          "group": "HIGH_CLASS"
+        },
+        {
+          "id": 4,
+          "group": "STANDARD"
+        },
+        {
+          "id": 5,
+          "group": "STANDARD"
+        },
+        {
+          "id": 6,
+          "group": "STUDENT"
+        },
+        {
+          "id": 7,
+          "group": "STUDENT"
+        }
+      ]
+    },
+    {
+      "name": "Boeing, Boeing",
+      "id": 3,
+      "groupToPrice": [
+        {
+          "key": "VIP",
+          "value": 100
+        },
+        {
+          "key": "STANDARD",
+          "value": 60
+        },
+        {
+          "key": "STUDENT",
+          "value": 20
+        }
+      ],
+      "date": "2019-04-03T18:00:00.000Z",
+      "seatsPool": [
+        {
+          "id": 1,
+          "group": "VIP"
+        },
+        {
+          "id": 2,
+          "group": "STANDARD"
+        },
+        {
+          "id": 3,
+          "group": "STANDARD"
+        },
+        {
+          "id": 4,
+          "group": "STUDENT"
+        },
+        {
+          "id": 5,
+          "group": "STUDENT"
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Jan",
+      "surname": "Kowalski",
+      "balance": 200
+    },
+    {
+      "id": 2,
+      "name": "Katarzyna",
+      "surname": "Cichopek",
+      "balance": 1000
+    },
+    {
+      "id": 3,
+      "name": "Piotr",
+      "surname": "Kucharski",
+      "balance": 0
+    }
+  ]
+}

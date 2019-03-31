@@ -53,4 +53,23 @@ public class BooksController {
     public BooksUtils getBookUtils() {
         return BooksUtils.getInstance();
     }
+
+    public boolean filterByPrice(Object value, Object filter, Locale locale) {
+        if (filter != null && filter.toString().matches("([0-9]|\\.)*-([0-9]|\\.)*")) {
+            String filterText = filter.toString();
+            Double fromPrice = Double.parseDouble(filterText.split("-")[0]);
+            Double toPrice = Double.parseDouble(filterText.split("-")[1]);
+
+            Double price;
+            if (((BookData) value).getPrice().getShouldDisplayPolishPrice()) {
+                price = ((BookData) value).getPrice().getPolishPrice();
+            }
+            else {
+                price = ((BookData) value).getPrice().getPrice();
+            }
+
+            return (price > fromPrice && price < toPrice);
+        }
+        return true;
+    }
 }

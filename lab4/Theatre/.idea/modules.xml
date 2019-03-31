@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ejbapi/ejbapi.iml" filepath="$PROJECT_DIR$/ejbapi/ejbapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ejbimpl/ejbimpl.iml" filepath="$PROJECT_DIR$/ejbimpl/ejbimpl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal/portal.iml" filepath="$PROJECT_DIR$/portal/portal.iml" />
+    </modules>
+  </component>
+</project>
