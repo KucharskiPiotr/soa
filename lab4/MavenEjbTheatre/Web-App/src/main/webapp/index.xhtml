@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form id="login">
+        <h:panelGroup rendered="#{MainPage.currentCustomer == null}">
+            <h2>Select Customer:</h2>
+            <ui:repeat value="#{MainPage.customers}" var="cust">
+                <p:commandButton value="#{cust}">
+                    <f:ajax listener="#{MainPage.setCurrentCustomer(cust)}" execute="@form" render="@form eventsTable"/>
+                </p:commandButton>
+            </ui:repeat>
+        </h:panelGroup>
+    </h:form>
+
+    <h:form id="eventsTable">
+        <h:panelGroup rendered="#{MainPage.currentCustomer != null}" >
+            <p:commandButton value="Change account">
+                <f:ajax listener="#{MainPage.setCurrentCustomer(null)}" render="@form login"/>
+            </p:commandButton>
+            <h2>Welcome #{MainPage.currentCustomer.name} #{MainPage.currentCustomer.surname}</h2>
+            <h3>Your current balance: #{MainPage.currentCustomer.balance}</h3>
+            <h3>Select event to buy ticket</h3>
+            <p:dataTable value="#{MainPage.events}" var="event">
+                <p:column headerText="Action">
+                    <h:commandButton value="Buy Ticket" action="seatSelect">
+                        <f:ajax listener="#{SeatSelection.init(event, MainPage.currentCustomer)}" />
+                    </h:commandButton>
+                </p:column>
+                <p:column headerText="Date" filterBy="#{event.date}">
+                    <p:outputLabel value="#{event.date}" />
+                </p:column>
+                <p:column headerText="Name" filterBy="#{event.name}">
+                    <p:outputLabel value="#{event.name}" />
+                </p:column>
+                <p:column headerText="Prices">
+                    <ui:repeat value="#{MainPage.getPrices(event)}" var="price">
+                        <p:outputLabel value="#{price}" /><br/>
+                    </ui:repeat>
+                </p:column>
+                <p:column headerText="Seats available">
+                    <p:outputLabel value="#{MainPage.getAvailableSeatsNumber(event)}" escape="false" />
+                </p:column>
+            </p:dataTable>
+        </h:panelGroup>
+    </h:form>
+
+</h:body>
+</html>
