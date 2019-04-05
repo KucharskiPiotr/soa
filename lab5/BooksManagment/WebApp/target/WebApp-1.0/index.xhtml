@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+    <h:form id="booksSelect" rendered="#{!ShoppingCart.summary}">
+
+        <p:dataTable widgetVar="booksTable" value="#{BooksController.items}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}">
+
+            <p:column headerText="Add to cart">
+                <h:commandButton value="Add to cart" >
+                    <f:ajax listener="#{ShoppingCart.addItem(book)}" render="@form"/>
+                </h:commandButton>
+                <h:commandButton value="Remove from cart">
+                    <f:ajax listener="#{ShoppingCart.removeItem(book)}" render="@form"/>
+                </h:commandButton>
+            </p:column>
+
+            <p:column headerText="Quantity">
+                <h:outputText value="#{ShoppingCart.getItemQuantity(book)}"/>
+            </p:column>
+
+            <p:column filterBy="#{book.authorSurname}" filterMatchMode="contains" headerText="Author">
+                <h:outputText value="#{book.authorSurname}" />
+            </p:column>
+
+            <p:column filterBy="#{book.title}" filterMatchMode="contains" headerText="Title">
+                <h:outputText value="#{book.title}" />
+            </p:column>
+
+<!--            <p:column filterBy="#{book.type}" filterMatchMode="in" headerText="Type">-->
+<!--                <f:facet name="filter">-->
+<!--                    <p:selectCheckboxMenu label="Book types" onchange="PF('booksTable').filter()">-->
+<!--                        <f:selectItems value="#{BooksController.getBookUtils().bookTypes}"/>-->
+<!--                    </p:selectCheckboxMenu>-->
+<!--                </f:facet>-->
+<!--                <h:outputText value="#{book.type}" />-->
+<!--            </p:column>-->
+
+            <p:column headerText="Price">
+                <h:outputText value="#{book.price}">
+                    <f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" />
+                </h:outputText>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Currency"/> <br/>
+                    <p:selectOneButton value="#{BooksController.polishCurrency}">
+                        <f:selectItem itemLabel="PLN" itemValue="true" />
+                        <f:selectItem itemLabel="Original" itemValue="false" />
+                        <f:ajax listener="#{BooksController.changeCurrencyToDisplayInAllBooks}" render="@form"/>
+                    </p:selectOneButton>
+                </f:facet>
+                <h:outputText value="#{book.price}" />
+            </p:column>
+
+            <f:facet name="footer">
+                <h:commandButton value="Make order" action="summary"/>
+            </f:facet>
+
+        </p:dataTable>
+    </h:form>
+
+
+</h:body>
+</html>
