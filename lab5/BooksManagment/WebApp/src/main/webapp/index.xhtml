@@ -11,24 +11,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
+    <h1>Books Managment</h1>
+
     <h:form id="booksSelect" rendered="#{!ShoppingCart.summary}">
+        <h:commandButton value="Add new book" action="addBookForm"/>
 
-        <p:dataTable widgetVar="booksTable" value="#{BooksController.items}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}">
+        <hr/>
+        <p:dataTable widgetVar="booksTable" value="#{BooksController.books}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}">
 
-            <p:column headerText="Add to cart">
-                <h:commandButton value="Add to cart" >
-                    <f:ajax listener="#{ShoppingCart.addItem(book)}" render="@form"/>
+            <p:column headerText="Operation">
+                <h:commandButton value="Delete" >
+                    <f:ajax listener="#{BooksController.deleteBook(book)}" render="@form"/>
                 </h:commandButton>
-                <h:commandButton value="Remove from cart">
-                    <f:ajax listener="#{ShoppingCart.removeItem(book)}" render="@form"/>
+                <h:commandButton value="Modify" action="modifyBook">
+                    <f:ajax listener="#{ModifyBook.setBook(book)}" />
                 </h:commandButton>
             </p:column>
 
-            <p:column headerText="Quantity">
-                <h:outputText value="#{ShoppingCart.getItemQuantity(book)}"/>
+            <p:column filterBy="#{book.id}" filterMatchMode="contains" headerText="Id">
+                <h:outputLabel value="#{book.id}" />
             </p:column>
 
-            <p:column filterBy="#{book.authorSurname}" filterMatchMode="contains" headerText="Author">
+            <p:column filterBy="#{book.authorName}" filterMatchMode="contains" headerText="Author name">
+                <h:outputText value="#{book.authorName}" />
+            </p:column>
+
+            <p:column filterBy="#{book.authorSurname}" filterMatchMode="contains" headerText="Author Surname">
                 <h:outputText value="#{book.authorSurname}" />
             </p:column>
 
@@ -36,36 +44,19 @@
                 <h:outputText value="#{book.title}" />
             </p:column>
 
-<!--            <p:column filterBy="#{book.type}" filterMatchMode="in" headerText="Type">-->
-<!--                <f:facet name="filter">-->
-<!--                    <p:selectCheckboxMenu label="Book types" onchange="PF('booksTable').filter()">-->
-<!--                        <f:selectItems value="#{BooksController.getBookUtils().bookTypes}"/>-->
-<!--                    </p:selectCheckboxMenu>-->
-<!--                </f:facet>-->
-<!--                <h:outputText value="#{book.type}" />-->
-<!--            </p:column>-->
+            <p:column filterBy="#{book.isbn}" filterMatchMode="contains" headerText="ISBN">
+                <h:outputText value="#{book.isbn}" />
+            </p:column>
+
+            <p:column filterBy="#{book.year}" filterMatchMode="contains" headerText="Year">
+                <h:outputText value="#{book.year}" />
+            </p:column>
 
             <p:column headerText="Price">
                 <h:outputText value="#{book.price}">
                     <f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" />
                 </h:outputText>
             </p:column>
-
-            <p:column>
-                <f:facet name="header">
-                    <h:outputText value="Currency"/> <br/>
-                    <p:selectOneButton value="#{BooksController.polishCurrency}">
-                        <f:selectItem itemLabel="PLN" itemValue="true" />
-                        <f:selectItem itemLabel="Original" itemValue="false" />
-                        <f:ajax listener="#{BooksController.changeCurrencyToDisplayInAllBooks}" render="@form"/>
-                    </p:selectOneButton>
-                </f:facet>
-                <h:outputText value="#{book.price}" />
-            </p:column>
-
-            <f:facet name="footer">
-                <h:commandButton value="Make order" action="summary"/>
-            </f:facet>
 
         </p:dataTable>
     </h:form>

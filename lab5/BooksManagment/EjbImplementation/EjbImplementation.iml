@@ -12,7 +12,7 @@
         <naming-strategy-map>
           <unit-entry name="AGH-MySQL" />
         </naming-strategy-map>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/../EjbPersistenceXml/src/main/resources/META-INF/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/../EjbApi/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
   </component>

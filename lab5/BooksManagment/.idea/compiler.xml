@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EjbImplementation" />
-        <module name="EjbPersistenceXml" />
         <module name="EjbApi" />
         <module name="WebApp" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="EjbPersistenceXml" target="1.10" />
+    </bytecodeTargetLevel>
   </component>
 </project>

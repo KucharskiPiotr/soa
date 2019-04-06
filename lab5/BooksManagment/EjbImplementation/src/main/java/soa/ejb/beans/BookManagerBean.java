@@ -16,4 +16,19 @@ public class BookManagerBean implements BookManagerRemote {
     public List<BookData> getBooks() {
         return BookDAO.getInstance().getItems();
     }
+
+    @Override
+    public void addBook(BookData newBook) {
+        BookDAO.getInstance().addItem(newBook);
+    }
+
+    @Override
+    public void removeBook(BookData book) {
+        BookDAO.getInstance().deleteItem(book);
+    }
+
+    @Override
+    public void modifyBook(BookData book) {
+        BookDAO.getInstance().updateItem(book);
+    }
 }

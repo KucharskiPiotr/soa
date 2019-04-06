@@ -1,11 +1,7 @@
 package soa.dao;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.internal.SessionFactoryImpl;
 import soa.ejb.dto.BookData;
 
 import javax.persistence.EntityManager;
@@ -32,8 +28,38 @@ public class BookDAO {
     }
 
     public List<BookData> getItems() {
-        Query query = entityManager.createNativeQuery("SELECT * FROM Books", BookData.class);
+        Query query = entityManager.createQuery("FROM BookData", BookData.class);
         return query.getResultList();
+    }
+
+    public BookData getItem(Integer itemId) {
+        Query query = entityManager.createQuery("FROM BookData WHERE BookData.id = :id");
+        query.setParameter("id", itemId);
+        return (BookData) query.getSingleResult();
+    }
+
+    public void addItem(BookData item) {
+        try {
+            entityManager.persist(item);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+        }
+    }
+
+    public void updateItem(BookData item) {
+        entityManager.merge(item);
+        entityManager.getTransaction().commit();
+    }
+
+    public void deleteItem(BookData item) {
+        entityManager.remove(entityManager.contains(item) ? item : entityManager.merge(item));
+        entityManager.getTransaction().commit();
+    }
+
+    public void deleteItem(Integer itemId) {
+        BookData item = getItem(itemId);
+        deleteItem(item);
     }
 
 }

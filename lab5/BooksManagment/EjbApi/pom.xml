@@ -11,20 +11,14 @@
 
     <artifactId>EjbApi</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>BooksManagment</groupId>
-            <artifactId>EjbPersistenceXml</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
+    <packaging>jar</packaging>
 
+    <dependencies>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.15</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
@@ -32,7 +26,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.2.Final</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.clojure/java.jdbc -->
@@ -40,7 +33,6 @@
             <groupId>org.clojure</groupId>
             <artifactId>java.jdbc</artifactId>
             <version>0.7.8</version>
-            <scope>provided</scope>
         </dependency>
 
     </dependencies>

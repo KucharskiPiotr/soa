@@ -3,15 +3,15 @@ package soa.ejb.dto;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name = "BookData")
-@Table(name = "Books", schema = "kuchars2")
+@Entity()
+@Table(name = "Books")
 @Access(AccessType.FIELD)
 public class BookData implements Serializable {
 
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
-    private Integer id;
+    private int id;
 
     @Column(name = "Surname", nullable = false)
     private String authorSurname;

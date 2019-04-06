@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+    <h2>Adding new book</h2>
+    <h:form>
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Author name:"/>
+            <p:inputText value="#{AddBook.newBook.authorName}" />
+
+            <p:outputLabel value="Author surname:"/>
+            <p:inputText value="#{AddBook.newBook.authorSurname}" />
+
+            <p:outputLabel value="ISBN:"/>
+            <p:inputText value="#{AddBook.newBook.isbn}" />
+
+            <p:outputLabel value="Price:"/>
+            <p:inputText value="#{AddBook.newBook.price}" />
+
+            <p:outputLabel value="Title:"/>
+            <p:inputText value="#{AddBook.newBook.title}" />
+
+            <p:outputLabel value="Year:"/>
+            <p:inputText value="#{AddBook.newBook.year}" />
+
+            <p:commandButton value="Add book" action="index">
+                <f:ajax listener="#{AddBook.addBook}" execute="@form" />
+            </p:commandButton>
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>
