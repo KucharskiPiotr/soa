@@ -13,8 +13,6 @@
          
     <artifactId>EjbApi</artifactId>
 
-    <packaging>jar</packaging>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
