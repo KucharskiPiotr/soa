@@ -1,23 +1,22 @@
 package soa.ejb.dto;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity()
 @Table(name = "Books")
 @Access(AccessType.FIELD)
-public class BookData implements Serializable {
+public class BookData extends AbstractDTO implements Serializable {
 
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
     private int id;
 
-    @Column(name = "Surname", nullable = false)
-    private String authorSurname;
-
-    @Column(name = "Name")
-    private String authorName;
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = AuthorData.class)
+    private AuthorData author;
 
     @Column(name = "Title", nullable = false)
     private String title;
@@ -28,9 +27,6 @@ public class BookData implements Serializable {
     @Column(name = "Year")
     private String year;
 
-    @Column(name = "Price", nullable = false)
-    private Double price;
-
     public BookData() {}
 
     public Integer getId() {
@@ -39,22 +35,6 @@ public class BookData implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getAuthorSurname() {
-        return authorSurname;
-    }
-
-    public void setAuthorSurname(String authorSurname) {
-        this.authorSurname = authorSurname;
-    }
-
-    public String getAuthorName() {
-        return authorName;
-    }
-
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
     }
 
     public String getTitle() {
@@ -81,12 +61,12 @@ public class BookData implements Serializable {
         this.year = year;
     }
 
-    public Double getPrice() {
-        return price;
+    public AuthorData getAuthor() {
+        return author;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setAuthor(AuthorData author) {
+        this.author = author;
     }
 }
 

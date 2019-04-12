@@ -12,7 +12,6 @@
         <module>EjbImplementation</module>
         <module>EjbApi</module>
         <module>WebApp</module>
-        <module>EjbPersistenceXml</module>
     </modules>
 
     <properties>

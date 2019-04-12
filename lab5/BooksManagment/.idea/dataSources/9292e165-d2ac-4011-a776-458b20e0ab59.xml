@@ -803,54 +803,156 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="201" parent="3" name="Books"/>
-    <column id="202" parent="201" name="Id">
+    <table id="201" parent="3" name="Authors"/>
+    <table id="202" parent="3" name="Books"/>
+    <table id="203" parent="3" name="Borrows"/>
+    <table id="204" parent="3" name="Customers"/>
+    <table id="205" parent="3" name="hibernate_sequence"/>
+    <column id="206" parent="201" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="203" parent="201" name="Surname">
+    <column id="207" parent="201" name="Name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="204" parent="201" name="Name">
+    <column id="208" parent="201" name="Surname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="205" parent="201" name="Title">
+    <key id="209" parent="201" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="210" parent="202" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="211" parent="202" name="ISBN">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="212" parent="202" name="Title">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="213" parent="202" name="Year">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="206" parent="201" name="ISBN">
+    <column id="214" parent="202" name="author_Id">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="207" parent="201" name="Year">
-      <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="208" parent="201" name="Price">
-      <Position>7</Position>
-      <DataType>double|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="209" parent="201" name="Id">
-      <ColNames>Id</ColNames>
-      <Unique>1</Unique>
+    <index id="215" parent="202" name="FK5ow0rw4w3y36khdws0bkmye1d">
+      <ColNames>author_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="210" parent="201" name="Id">
+    <key id="216" parent="202" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
-      <UnderlyingIndexName>Id</UnderlyingIndexName>
+      <Primary>1</Primary>
     </key>
+    <foreign-key id="217" parent="202" name="FK5ow0rw4w3y36khdws0bkmye1d">
+      <ColNames>author_Id</ColNames>
+      <RefSchemaName>kuchars2</RefSchemaName>
+      <RefTableName>Authors</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="218" parent="203" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="219" parent="203" name="BorrowDate">
+      <Position>2</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="220" parent="203" name="ReturnDate">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="221" parent="203" name="bookId_Id">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="222" parent="203" name="cusId_Id">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="223" parent="203" name="FKfb2vc4awuvx27ibiq0hmka0y5">
+      <ColNames>bookId_Id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="224" parent="203" name="FKcyehqsl9faci5aft2k27vsgww">
+      <ColNames>cusId_Id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="225" parent="203" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="226" parent="203" name="FKfb2vc4awuvx27ibiq0hmka0y5">
+      <ColNames>bookId_Id</ColNames>
+      <RefSchemaName>kuchars2</RefSchemaName>
+      <RefTableName>Books</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="227" parent="203" name="FKcyehqsl9faci5aft2k27vsgww">
+      <ColNames>cusId_Id</ColNames>
+      <RefSchemaName>kuchars2</RefSchemaName>
+      <RefTableName>Customers</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="228" parent="204" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="229" parent="204" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="230" parent="204" name="Surname">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="231" parent="204" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="232" parent="205" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
   </database-model>
 </dataSource>

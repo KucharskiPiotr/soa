@@ -1,5 +1,6 @@
 package soa.web;
 
+import soa.ejb.dto.AuthorData;
 import soa.ejb.dto.BookData;
 import soa.ejb.interfaces.remote.BookManagerRemote;
 
@@ -17,6 +18,7 @@ public class AddBookController {
 
     public AddBookController() {
         newBook = new BookData();
+        newBook.setAuthor(new AuthorData());
     }
 
     public BookData getNewBook() {

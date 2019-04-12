@@ -8,6 +8,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/AGH-MySql</jta-data-source>
         <class>soa.ejb.dto.BookData</class>
+        <class>soa.ejb.dto.CustomerData</class>
+        <class>soa.ejb.dto.AuthorData</class>
+        <class>soa.ejb.dto.BorrowData</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL55Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

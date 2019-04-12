@@ -7,6 +7,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
+<script type="text/javascript">
+    function closeModal() {
+        modal.style.display = none;
+    }
+</script>
+
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
@@ -14,7 +20,7 @@
     <h1>Books Managment</h1>
 
     <h:form id="booksSelect" rendered="#{!ShoppingCart.summary}">
-        <h:commandButton value="Add new book" action="addBookForm"/>
+        <h:commandButton value="Add new book" id="addBtn" action="addBookForm"/>
 
         <hr/>
         <p:dataTable widgetVar="booksTable" value="#{BooksController.books}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}">
@@ -32,12 +38,12 @@
                 <h:outputLabel value="#{book.id}" />
             </p:column>
 
-            <p:column filterBy="#{book.authorName}" filterMatchMode="contains" headerText="Author name">
-                <h:outputText value="#{book.authorName}" />
+            <p:column filterBy="#{book.author.name}" filterMatchMode="contains" headerText="Author name">
+                <h:outputText value="#{book.author.name}" />
             </p:column>
 
-            <p:column filterBy="#{book.authorSurname}" filterMatchMode="contains" headerText="Author Surname">
-                <h:outputText value="#{book.authorSurname}" />
+            <p:column filterBy="#{book.author.surname}" filterMatchMode="contains" headerText="Author Surname">
+                <h:outputText value="#{book.author.surname}" />
             </p:column>
 
             <p:column filterBy="#{book.title}" filterMatchMode="contains" headerText="Title">
@@ -52,15 +58,8 @@
                 <h:outputText value="#{book.year}" />
             </p:column>
 
-            <p:column headerText="Price">
-                <h:outputText value="#{book.price}">
-                    <f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" />
-                </h:outputText>
-            </p:column>
-
         </p:dataTable>
     </h:form>
-
 
 </h:body>
 </html>
