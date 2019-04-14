@@ -8,6 +8,12 @@ import java.util.Date;
 @Table(name = "Borrows")
 @Access(AccessType.FIELD)
 public class BorrowData extends AbstractDTO implements Serializable {
+
+    public interface BorrowStatus {
+        String BORROWED = "B";
+        String RETURNED = "R";
+    }
+
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
@@ -24,6 +30,9 @@ public class BorrowData extends AbstractDTO implements Serializable {
 
     @Column(name = "ReturnDate", nullable = false)
     private Date returnDate;
+
+    @Column(name = "Status")
+    private String status;      // Possible values: B - borrowed, O - overdue, R - returned
 
     public int getId() {
         return id;
@@ -63,5 +72,13 @@ public class BorrowData extends AbstractDTO implements Serializable {
 
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

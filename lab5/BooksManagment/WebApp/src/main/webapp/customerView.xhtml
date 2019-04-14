@@ -4,8 +4,85 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+    <h1>Welcome, #{CustomerController.customer.name} #{CustomerController.customer.surname}</h1>
+    <hr/>
+    <h3>Your borrowed books:</h3>
+    <h:dataTable value="#{CustomerController.currentlyBorrowedBooks}" var="borrowedBook" styleClass="table table-striped" headerClass="thead-light" rowClasses="row">
+        <h:column>
+            <h:commandButton type="button" value="Return" styleClass="btn btn-success"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            <h:outputLabel value="#{borrowedBook.bookId.id}" rendered="#{borrowedBook.status.equals('B')}"/>
+            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Author name</f:facet>
+            <h:outputLabel value="#{borrowedBook.bookId.author.name}" rendered="#{borrowedBook.status.equals('B')}"/>
+            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Author surname</f:facet>
+            <h:outputLabel value="#{borrowedBook.bookId.author.surname}" rendered="#{borrowedBook.status.equals('B')}"/>
+            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            <h:outputLabel value="#{borrowedBook.bookId.title}" rendered="#{borrowedBook.status.equals('B')}"/>
+            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">ISBN</f:facet>
+            <h:outputLabel value="#{borrowedBook.bookId.isbn}" rendered="#{borrowedBook.status.equals('B')}"/>
+            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Return by</f:facet>
+            <h:outputLabel value="#{borrowedBook.returnDate}" rendered="#{borrowedBook.status.equals('B')}"/>
+            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+        </h:column>
+    </h:dataTable>
+
+    <hr/>
+
+    <h3>Books available:</h3>
+    <h:dataTable value="#{BooksController.availableBooks}" var="availableBook" styleClass="table table-striped" headerClass="thead-light" rowClasses="row">
+        <h:column>
+            <h:commandButton type="button" value="Borrow" styleClass="btn btn-success"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            <h:outputLabel value="#{availableBook.id}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">Author name</f:facet>
+            <h:outputLabel value="#{availableBook.author.name}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">Author surname</f:facet>
+            <h:outputLabel value="#{availableBook.author.surname}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            <h:outputLabel value="#{availableBook.title}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">ISBN</f:facet>
+            <h:outputLabel value="#{availableBook.isbn}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">Year</f:facet>
+            <h:outputLabel value="#{availableBook.year}"/>
+        </h:column>
+    </h:dataTable>
+</h:body>
+
 </html>

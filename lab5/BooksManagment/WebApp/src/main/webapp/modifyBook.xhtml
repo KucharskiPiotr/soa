@@ -13,29 +13,40 @@
 <h:body>
     <h2>Modyfing book</h2>
     <h:form>
-        <p:panelGrid columns="2">
-            <p:outputLabel value="Id:"/>
-            <p:inputText value="#{ModifyBook.book.id}" disabled="true" />
 
-            <p:outputLabel value="Author name:"/>
-            <p:inputText value="#{ModifyBook.book.author.name}" />
+        <div class="form-group">
+            <h:outputLabel value="Id:"/>
+            <h:inputText value="#{ModifyBook.book.id}" disabled="true" styleClass="form-control" />
+        </div>
 
-            <p:outputLabel value="Author surname:"/>
-            <p:inputText value="#{ModifyBook.book.author.surname}" />
+        <div class="form-group">
+            <h:outputLabel value="Author name:"/>
+            <h:inputText value="#{ModifyBook.book.author.name}" styleClass="form-control" />
+        </div>
 
-            <p:outputLabel value="ISBN:"/>
-            <p:inputText value="#{ModifyBook.book.isbn}" />
+        <div class="form-group">
+            <h:outputLabel value="Author surname:"/>
+            <h:inputText value="#{ModifyBook.book.author.surname}" styleClass="form-control" />
+        </div>
 
-            <p:outputLabel value="Title:"/>
-            <p:inputText value="#{ModifyBook.book.title}" />
+        <div class="form-group">
+            <h:outputLabel value="ISBN:"/>
+            <h:inputText value="#{ModifyBook.book.isbn}" styleClass="form-control" />
+        </div>
 
-            <p:outputLabel value="Year:"/>
-            <p:inputText value="#{ModifyBook.book.year}" />
+        <div class="form-group">
+            <h:outputLabel value="Title:"/>
+            <h:inputText value="#{ModifyBook.book.title}" styleClass="form-control" />
+        </div>
 
-            <p:commandButton value="Modify book" action="booksCatalog">
-                <f:ajax listener="#{ModifyBook.modify}" execute="@form"/>
-            </p:commandButton>
-        </p:panelGrid>
+        <div class="form-group">
+            <h:outputLabel value="Year:"/>
+            <h:inputText value="#{ModifyBook.book.year}" styleClass="form-control" />
+        </div>
+
+        <h:commandButton value="Modify book" action="librarianConsole" styleClass="btn btn-primary">
+            <f:ajax listener="#{ModifyBook.modify}" execute="@form"/>
+        </h:commandButton>
     </h:form>
 </h:body>
 </html>

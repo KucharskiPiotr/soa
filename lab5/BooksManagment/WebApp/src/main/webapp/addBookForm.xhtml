@@ -7,31 +7,42 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link href="css/style.css" rel="stylesheet"/>
 </h:head>
 <h:body>
     <h2>Adding new book</h2>
     <h:form>
-        <p:panelGrid columns="2">
-            <p:outputLabel value="Author name:"/>
-            <p:inputText value="#{AddBook.newBook.author.name}" />
+<!--        <p:panelGrid columns="2">-->
+            <div class="form-group">
+                <h:outputLabel value="Author name:"/>
+                <h:inputText value="#{AddBook.newBook.author.name}" styleClass="form-control" />
+            </div>
 
-            <p:outputLabel value="Author surname:"/>
-            <p:inputText value="#{AddBook.newBook.author.surname}" />
+            <div class="form-group">
+                <h:outputLabel value="Author surname:"/>
+                <h:inputText value="#{AddBook.newBook.author.surname}" styleClass="form-control" />
+            </div>
 
-            <p:outputLabel value="ISBN:"/>
-            <p:inputText value="#{AddBook.newBook.isbn}" />
+            <div class="form-group">
+                <h:outputLabel value="ISBN:"/>
+                <h:inputText value="#{AddBook.newBook.isbn}" styleClass="form-control" />
+            </div>
 
-            <p:outputLabel value="Title:"/>
-            <p:inputText value="#{AddBook.newBook.title}" />
+            <div class="form-group">
+                <h:outputLabel value="Title:"/>
+                <h:inputText value="#{AddBook.newBook.title}" styleClass="form-control" />
+            </div>
 
-            <p:outputLabel value="Year:"/>
-            <p:inputText value="#{AddBook.newBook.year}" />
+            <div class="form-group">
+                <h:outputLabel value="Year:"/>
+                <h:inputText value="#{AddBook.newBook.year}" styleClass="form-control" />
+            </div>
 
-            <p:commandButton value="Add book" action="index">
+            <h:commandButton value="Add book" action="librarianConsole" styleClass="btn btn-primary">
                 <f:ajax listener="#{AddBook.addBook}" execute="@form" />
-            </p:commandButton>
-        </p:panelGrid>
+            </h:commandButton>
+<!--        </p:panelGrid>-->
     </h:form>
 </h:body>
 </html>

@@ -48,4 +48,8 @@ public class BooksController implements Serializable {
         bookManager.removeBook(book);
         init();
     }
+
+    public List<BookData> getAvailableBooks() {
+        return bookManager.getAvailableBooks();
+    }
 }
