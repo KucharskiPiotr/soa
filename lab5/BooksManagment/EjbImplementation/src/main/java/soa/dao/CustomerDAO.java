@@ -9,7 +9,7 @@ public class CustomerDAO extends AbstractDAO<CustomerData> {
         super(CustomerData.class);
     }
 
-    public static CustomerDAO getInstance() {
+    public synchronized static CustomerDAO getInstance() {
         if (instance == null) {
             instance = new CustomerDAO();
         }

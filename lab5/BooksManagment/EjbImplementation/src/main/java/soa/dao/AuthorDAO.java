@@ -9,7 +9,7 @@ public class AuthorDAO extends AbstractDAO<AuthorData> {
         super(AuthorData.class);
     }
 
-    public static AuthorDAO getInstance() {
+    public synchronized static AuthorDAO getInstance() {
         if (instance == null) {
             instance = new AuthorDAO();
         }

@@ -5,61 +5,41 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-
-<script type="text/javascript">
-    function closeModal() {
-        modal.style.display = none;
-    }
-</script>
-
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="css/login.css" rel="stylesheet" />
 </h:head>
 <h:body>
-    <h1>Books Managment</h1>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
 
-    <h:form id="booksSelect" rendered="#{!ShoppingCart.summary}">
-        <h:commandButton value="Add new book" id="addBtn" action="addBookForm"/>
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <h2>SOA Library</h2>
+            </div>
 
-        <hr/>
-        <p:dataTable widgetVar="booksTable" value="#{BooksController.books}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}">
-
-            <p:column headerText="Operation">
-                <h:commandButton value="Delete" >
-                    <f:ajax listener="#{BooksController.deleteBook(book)}" render="@form"/>
+            <!-- Login Form -->
+            <h:form>
+<!--                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"/>-->
+<!--                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"/>-->
+<!--                <input type="submit" class="fadeIn fourth" value="Log In"/>-->
+                <h:inputText value="#{CustomerController.customerLogin}" styleClass="fadeIn second" a:placeholder="login"/>
+                <h:inputText value="#{CustomerController.customerPassword}" styleClass="fadeIn third" a:placeholder="password"/>
+                <h:commandButton type="button" styleClass="fadeIn third" value="Log In" action="customerView">
+                    <f:ajax execute="@form"/>
                 </h:commandButton>
-                <h:commandButton value="Modify" action="modifyBook">
-                    <f:ajax listener="#{ModifyBook.setBook(book)}" />
-                </h:commandButton>
-            </p:column>
+            </h:form>
 
-            <p:column filterBy="#{book.id}" filterMatchMode="contains" headerText="Id">
-                <h:outputLabel value="#{book.id}" />
-            </p:column>
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="booksCatalog.xhtml">Librarian console</a>
+            </div>
 
-            <p:column filterBy="#{book.author.name}" filterMatchMode="contains" headerText="Author name">
-                <h:outputText value="#{book.author.name}" />
-            </p:column>
-
-            <p:column filterBy="#{book.author.surname}" filterMatchMode="contains" headerText="Author Surname">
-                <h:outputText value="#{book.author.surname}" />
-            </p:column>
-
-            <p:column filterBy="#{book.title}" filterMatchMode="contains" headerText="Title">
-                <h:outputText value="#{book.title}" />
-            </p:column>
-
-            <p:column filterBy="#{book.isbn}" filterMatchMode="contains" headerText="ISBN">
-                <h:outputText value="#{book.isbn}" />
-            </p:column>
-
-            <p:column filterBy="#{book.year}" filterMatchMode="contains" headerText="Year">
-                <h:outputText value="#{book.year}" />
-            </p:column>
-
-        </p:dataTable>
-    </h:form>
-
+        </div>
+    </div>
 </h:body>
 </html>

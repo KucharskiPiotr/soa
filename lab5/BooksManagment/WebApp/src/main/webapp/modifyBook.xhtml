@@ -18,16 +18,13 @@
             <p:inputText value="#{ModifyBook.book.id}" disabled="true" />
 
             <p:outputLabel value="Author name:"/>
-            <p:inputText value="#{ModifyBook.book.authorName}" />
+            <p:inputText value="#{ModifyBook.book.author.name}" />
 
             <p:outputLabel value="Author surname:"/>
-            <p:inputText value="#{ModifyBook.book.authorSurname}" />
+            <p:inputText value="#{ModifyBook.book.author.surname}" />
 
             <p:outputLabel value="ISBN:"/>
             <p:inputText value="#{ModifyBook.book.isbn}" />
-
-            <p:outputLabel value="Price:"/>
-            <p:inputText value="#{ModifyBook.book.price}" />
 
             <p:outputLabel value="Title:"/>
             <p:inputText value="#{ModifyBook.book.title}" />
@@ -35,7 +32,7 @@
             <p:outputLabel value="Year:"/>
             <p:inputText value="#{ModifyBook.book.year}" />
 
-            <p:commandButton value="Modify book" action="index">
+            <p:commandButton value="Modify book" action="booksCatalog">
                 <f:ajax listener="#{ModifyBook.modify}" execute="@form"/>
             </p:commandButton>
         </p:panelGrid>

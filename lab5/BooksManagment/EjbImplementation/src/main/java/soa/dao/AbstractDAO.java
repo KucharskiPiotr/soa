@@ -6,6 +6,7 @@ import soa.ejb.dto.BookData;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public abstract class AbstractDAO<T extends AbstractDTO> {
@@ -16,7 +17,10 @@ public abstract class AbstractDAO<T extends AbstractDTO> {
 
     private String className;
 
+    private Class clazz;
+
     protected AbstractDAO(Class clazz) {
+        this.clazz = clazz;
         className = clazz.getSimpleName();
         entityManager = Persistence
                 .createEntityManagerFactory(PERSISTENCE_UNIT_NAME)
@@ -24,12 +28,12 @@ public abstract class AbstractDAO<T extends AbstractDTO> {
     }
 
     public List<T> getItems() {
-        Query query = entityManager.createQuery("FROM " + className);
+        TypedQuery query = entityManager.createQuery("SELECT data FROM " + className + " data", clazz);
         return query.getResultList();
     }
 
     public T getItem(Integer itemId) {
-        Query query = entityManager.createQuery("FROM " + className + "c WHERE c.id = :id");
+        TypedQuery query = entityManager.createQuery("SELECT c FROM " + className + " c WHERE c.id = :id", clazz);
         query.setParameter("id", itemId);
         return (T) query.getSingleResult();
     }
@@ -44,6 +48,9 @@ public abstract class AbstractDAO<T extends AbstractDTO> {
     }
 
     public void updateItem(T item) {
+        if (!entityManager.getTransaction().isActive()) {
+            entityManager.getTransaction().begin();
+        }
         entityManager.merge(item);
         entityManager.getTransaction().commit();
     }

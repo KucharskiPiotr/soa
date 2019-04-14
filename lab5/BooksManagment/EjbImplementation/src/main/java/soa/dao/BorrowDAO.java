@@ -9,7 +9,7 @@ public class BorrowDAO extends AbstractDAO<BorrowData> {
         super(BorrowData.class);
     }
 
-    public static BorrowDAO getInstance() {
+    public synchronized static BorrowDAO getInstance() {
         if (instance == null) {
             instance = new BorrowDAO();
         }
