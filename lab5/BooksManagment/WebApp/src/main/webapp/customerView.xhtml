@@ -12,77 +12,137 @@
     <link href="css/style.css" rel="stylesheet"/>
 </h:head>
 <h:body>
-    <h1>Welcome, #{CustomerController.customer.name} #{CustomerController.customer.surname}</h1>
-    <hr/>
-    <h3>Your borrowed books:</h3>
-    <h:dataTable value="#{CustomerController.currentlyBorrowedBooks}" var="borrowedBook" styleClass="table table-striped" headerClass="thead-light" rowClasses="row">
-        <h:column>
-            <h:commandButton type="button" value="Return" styleClass="btn btn-success"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Id</f:facet>
-            <h:outputLabel value="#{borrowedBook.bookId.id}" rendered="#{borrowedBook.status.equals('B')}"/>
-            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Author name</f:facet>
-            <h:outputLabel value="#{borrowedBook.bookId.author.name}" rendered="#{borrowedBook.status.equals('B')}"/>
-            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Author surname</f:facet>
-            <h:outputLabel value="#{borrowedBook.bookId.author.surname}" rendered="#{borrowedBook.status.equals('B')}"/>
-            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Title</f:facet>
-            <h:outputLabel value="#{borrowedBook.bookId.title}" rendered="#{borrowedBook.status.equals('B')}"/>
-            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">ISBN</f:facet>
-            <h:outputLabel value="#{borrowedBook.bookId.isbn}" rendered="#{borrowedBook.status.equals('B')}"/>
-            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Return by</f:facet>
-            <h:outputLabel value="#{borrowedBook.returnDate}" rendered="#{borrowedBook.status.equals('B')}"/>
-            <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
-        </h:column>
-    </h:dataTable>
+    <div class="container">
+        <h1>Welcome, #{CustomerController.customer.name} #{CustomerController.customer.surname}</h1>
+        <hr/>
+        <h3>Your borrowed books:</h3>
+        <h:form id="borrowedBooksForm">
+            <h:dataTable value="#{CustomerController.currentlyBorrowedBooks}" var="borrowedBook" styleClass="table table-striped" headerClass="thead-light">
+                <h:column>
+                    <h:commandButton type="button" value="Return" styleClass="btn btn-danger">
+                        <f:ajax listener="#{CustomerController.returnBook(borrowedBook)}" render="@form booksAvailableForm" />
+                    </h:commandButton>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputLabel value="#{borrowedBook.bookId.id}" rendered="#{borrowedBook.status.equals('B')}"/>
+                    <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Author name</f:facet>
+                    <h:outputLabel value="#{borrowedBook.bookId.author.name}" rendered="#{borrowedBook.status.equals('B')}"/>
+                    <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Author surname</f:facet>
+                    <h:outputLabel value="#{borrowedBook.bookId.author.surname}" rendered="#{borrowedBook.status.equals('B')}"/>
+                    <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Title</f:facet>
+                    <h:outputLabel value="#{borrowedBook.bookId.title}" rendered="#{borrowedBook.status.equals('B')}"/>
+                    <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ISBN</f:facet>
+                    <h:outputLabel value="#{borrowedBook.bookId.isbn}" rendered="#{borrowedBook.status.equals('B')}"/>
+                    <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Return by</f:facet>
+                    <h:outputLabel value="#{borrowedBook.returnDueDate}" rendered="#{borrowedBook.status.equals('B')}"/>
+                    <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.status.equals('O')}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
 
-    <hr/>
+        <hr/>
 
-    <h3>Books available:</h3>
-    <h:dataTable value="#{BooksController.availableBooks}" var="availableBook" styleClass="table table-striped" headerClass="thead-light" rowClasses="row">
-        <h:column>
-            <h:commandButton type="button" value="Borrow" styleClass="btn btn-success"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Id</f:facet>
-            <h:outputLabel value="#{availableBook.id}" />
-        </h:column>
-        <h:column>
-            <f:facet name="header">Author name</f:facet>
-            <h:outputLabel value="#{availableBook.author.name}" />
-        </h:column>
-        <h:column>
-            <f:facet name="header">Author surname</f:facet>
-            <h:outputLabel value="#{availableBook.author.surname}" />
-        </h:column>
-        <h:column>
-            <f:facet name="header">Title</f:facet>
-            <h:outputLabel value="#{availableBook.title}" />
-        </h:column>
-        <h:column>
-            <f:facet name="header">ISBN</f:facet>
-            <h:outputLabel value="#{availableBook.isbn}" />
-        </h:column>
-        <h:column>
-            <f:facet name="header">Year</f:facet>
-            <h:outputLabel value="#{availableBook.year}"/>
-        </h:column>
-    </h:dataTable>
+        <h3>Books available:</h3>
+        <h:form id="booksAvailableForm">
+            <h:dataTable value="#{BooksController.availableBooks}" var="availableBook" styleClass="table table-striped" headerClass="thead-light">
+                <h:column>
+                    <f:facet name="header">Operation</f:facet>
+                    <h:commandButton type="button"
+                            class="btn btn-success"
+                            value="Borrow">
+                        <f:ajax listener="#{CustomerController.setSelectedBook(availableBook)}" render="@form modalForm" />
+                    </h:commandButton>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputLabel value="#{availableBook.id}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Author name</f:facet>
+                    <h:outputLabel value="#{availableBook.author.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Author surname</f:facet>
+                    <h:outputLabel value="#{availableBook.author.surname}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Title</f:facet>
+                    <h:outputLabel value="#{availableBook.title}" style="font-weight: bolder"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ISBN</f:facet>
+                    <h:outputLabel value="#{availableBook.isbn}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Year</f:facet>
+                    <h:outputLabel value="#{availableBook.year}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </div>
+
+    <h:form id="modalForm">
+        <h:panelGroup rendered="#{CustomerController.getSelectedBook() != null}">
+            <script type="text/javascript">
+                $('#exampleModal').modal(backdrop=true, keyboard=true, focus=true, show=true);
+
+                function closeModal() {
+                    $('#exampleModal').modal('toggle');
+                }
+            </script>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <h:outputLabel id="bookAuthor" styleClass="col-form-label"
+                                               value="#{CustomerController.selectedBook.author.name.concat(' ').concat(CustomerController.selectedBook.author.surname)}"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel id="bookTitle" styleClass="col-form-label" value="#{CustomerController.selectedBook.title}"/>
+                            </div>
+                            <p>Do you really want to borrow this book?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <!--                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Resign</button>-->
+                            <h:commandButton type="button" styleClass="btn btn-secondary" value="Resign" onclick="closeModal()">
+                                <f:ajax listener="#{CustomerController.setSelectedBook(null)}" render="@form" />
+                            </h:commandButton>
+                            <h:commandButton type="button" styleClass="btn btn-success" value="Confirm" onclick="closeModal()">
+                                <f:ajax listener="#{CustomerController.borrowSelectedBook}" render="@form borrowedBooksForm booksAvailableForm" />
+                            </h:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </h:form>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </h:body>
 
 </html>

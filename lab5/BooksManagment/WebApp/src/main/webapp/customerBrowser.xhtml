@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <!--    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+    <!--    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+    <!--    <link href="css/login.css" rel="stylesheet" />-->
+    <link href="css/style.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+    <style type="text/css">
+        .modal-dialog {
+            max-width: 700px;
+        }
+    </style>
+
+    <div class="container">
+        <h1>Customers browser</h1>
+        <hr/>
+
+        <h:form>
+            <h:dataTable styleClass="table table-striped" headerClass="thead-light" value="#{LibrarianController.listCustomers()}" var="customer">
+                <h:column>
+                    <h:commandButton type="button" styleClass="btn btn-info" value="Info">
+                        <f:ajax listener="#{LibrarianController.setSelectedCustomer(customer)}" render="@form modalForm" />
+                    </h:commandButton>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputLabel value="#{customer.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputLabel value="#{customer.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Surname</f:facet>
+                    <h:outputLabel value="#{customer.surname}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </div>
+
+    <h:form id="modalForm">
+        <h:panelGroup rendered="#{LibrarianController.getSelectedCustomer() != null}">
+            <script type="text/javascript">
+                $('#exampleModal').modal(backdrop=true, keyboard=true, focus=true, show=true);
+
+                function closeModal() {
+                    $('#exampleModal').modal('toggle');
+                }
+            </script>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">#{LibrarianController.selectedCustomer.name.concat(' ').concat(LibrarianController.selectedCustomer.surname)}</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <h5>Currently borrows:</h5>
+                                <h:dataTable value="#{LibrarianController.customerBorrowedBooks}" var="borrowedBook" styleClass="table table-striped" headerClass="thead-light">
+                                    <h:column>
+                                        <f:facet name="header">Id</f:facet>
+                                        <h:outputLabel value="#{borrowedBook.bookId.id}" rendered="#{borrowedBook.returnDueDate.after(LibrarianController.todaysDate)}"/>
+                                        <h:outputLabel value="#{borrowedBook.bookId.id}" style="color: darkred" rendered="#{borrowedBook.returnDueDate.before(LibrarianController.todaysDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Author name</f:facet>
+                                        <h:outputLabel value="#{borrowedBook.bookId.author.name}" rendered="#{borrowedBook.returnDueDate.after(LibrarianController.todaysDate)}"/>
+                                        <h:outputLabel value="#{borrowedBook.bookId.author.name}" style="color: darkred" rendered="#{borrowedBook.returnDueDate.before(LibrarianController.todaysDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Author surname</f:facet>
+                                        <h:outputLabel value="#{borrowedBook.bookId.author.surname}" rendered="#{borrowedBook.returnDueDate.after(LibrarianController.todaysDate)}"/>
+                                        <h:outputLabel value="#{borrowedBook.bookId.author.surname}" style="color: darkred" rendered="#{borrowedBook.returnDueDate.before(LibrarianController.todaysDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Title</f:facet>
+                                        <h:outputLabel value="#{borrowedBook.bookId.title}" rendered="#{borrowedBook.returnDueDate.after(LibrarianController.todaysDate)}"/>
+                                        <h:outputLabel value="#{borrowedBook.bookId.title}" style="color: darkred" rendered="#{borrowedBook.returnDueDate.before(LibrarianController.todaysDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">ISBN</f:facet>
+                                        <h:outputLabel value="#{borrowedBook.bookId.isbn}" rendered="#{borrowedBook.returnDueDate.after(LibrarianController.todaysDate)}"/>
+                                        <h:outputLabel value="#{borrowedBook.bookId.isbn}" style="color: darkred" rendered="#{borrowedBook.returnDueDate.before(LibrarianController.todaysDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Return by</f:facet>
+                                        <h:outputLabel value="#{borrowedBook.returnDueDate}" rendered="#{borrowedBook.returnDueDate.after(LibrarianController.todaysDate)}"/>
+                                        <h:outputLabel value="#{borrowedBook.returnDueDate}" style="color: darkred" rendered="#{borrowedBook.returnDueDate.before(LibrarianController.todaysDate)}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                            <div class="form-group">
+                                <h5>Borrow history:</h5>
+                                <h:dataTable value="#{LibrarianController.customerBorrowHistory}" var="borrowHistory" styleClass="table table-striped" headerClass="thead-light">
+                                    <h:column>
+                                        <f:facet name="header">Id</f:facet>
+                                        <h:outputLabel value="#{borrowHistory.bookId.id}" rendered="#{borrowHistory.returnDueDate.after(borrowHistory.returnedDate)}"/>
+                                        <h:outputLabel value="#{borrowHistory.bookId.id}" style="color: darkred" rendered="#{borrowHistory.returnDueDate.before(borrowHistory.returnedDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Author name</f:facet>
+                                        <h:outputLabel value="#{borrowHistory.bookId.author.name}" rendered="#{borrowHistory.returnDueDate.after(borrowHistory.returnedDate)}"/>
+                                        <h:outputLabel value="#{borrowHistory.bookId.author.name}" style="color: darkred" rendered="#{borrowHistory.returnDueDate.before(borrowHistory.returnedDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Author surname</f:facet>
+                                        <h:outputLabel value="#{borrowHistory.bookId.author.surname}" rendered="#{borrowHistory.returnDueDate.after(borrowHistory.returnedDate)}"/>
+                                        <h:outputLabel value="#{borrowHistory.bookId.author.surname}" style="color: darkred" rendered="#{borrowHistory.returnDueDate.before(borrowHistory.returnedDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Title</f:facet>
+                                        <h:outputLabel value="#{borrowHistory.bookId.title}" rendered="#{borrowHistory.returnDueDate.after(borrowHistory.returnedDate)}"/>
+                                        <h:outputLabel value="#{borrowHistory.bookId.title}" style="color: darkred" rendered="#{borrowHistory.returnDueDate.before(borrowHistory.returnedDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">ISBN</f:facet>
+                                        <h:outputLabel value="#{borrowHistory.bookId.isbn}" rendered="#{borrowHistory.returnDueDate.after(borrowHistory.returnedDate)}"/>
+                                        <h:outputLabel value="#{borrowHistory.bookId.isbn}" style="color: darkred" rendered="#{borrowHistory.returnDueDate.before(borrowHistory.returnedDate)}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Returned date</f:facet>
+                                        <h:outputLabel value="#{borrowHistory.returnedDate}" rendered="#{borrowHistory.returnDueDate.after(borrowHistory.returnedDate)}"/>
+                                        <h:outputLabel value="#{borrowHistory.returnedDate}" style="color: darkred" rendered="#{borrowHistory.returnDueDate.before(borrowHistory.returnedDate)}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <h:commandButton type="button" styleClass="btn btn-secondary" value="Close" onclick="closeModal()">
+                                <f:ajax listener="#{LibrarianController.setSelectedCustomer(null)}" render="@form" />
+                            </h:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </h:form>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</h:body>
+</html>

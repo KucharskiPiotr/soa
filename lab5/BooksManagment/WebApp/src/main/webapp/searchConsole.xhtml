@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <!--    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+    <!--    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+    <!--    <link href="css/login.css" rel="stylesheet" />-->
+    <link href="css/style.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+    <style type="text/css">
+        .modal-dialog {
+            max-width: 1000px;
+        }
+    </style>
+
+    <div class="container">
+        <h1>Statistics and advanced searching</h1>
+        <p>Insert filters that will be used in showing data and displaying statistics</p>
+        <hr/>
+        <h:form>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Customer:</label>
+                <label class="col-sm-4 col-form-label">Author:</label>
+                <label class="col-sm-4 col-form-label">Book:</label>
+            </div>
+            <div class="form-group row">
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.customer.id}" a:placeholder="Id"/>
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.author.id}" a:placeholder="Id"/>
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.book.id}" a:placeholder="Id"/>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.customer.name}" a:placeholder="Name"/>
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.author.name}" a:placeholder="Name"/>
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.book.title}" a:placeholder="Title"/>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.customer.surname}" a:placeholder="Surname"/>
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.author.surname}" a:placeholder="Surname"/>
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.book.isbn}" a:placeholder="ISBN"/>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8"></div>
+                <h:inputText styleClass="col-sm-3 form-control" value="#{SearchController.searchCriteria.book.year}" a:placeholder="Year"/>
+                <div class="col-sm-1"></div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Borrow:</label>
+                <h:inputText styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.id}" a:placeholder="Id"/>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.borrowDate}" a:placeholder="Borrow date (yyyy-MM-dd)">
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                </h:inputText>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.returnDueDate}" a:placeholder="Return deadline (yyyy-MM-dd)">
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                </h:inputText>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-1"></div>
+                <h:inputText styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.returnedDate}" a:placeholder="Date of return (yyyy-MM-dd)">
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                </h:inputText>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-1"></div>
+                <h:selectOneMenu styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.status}">
+                    <f:selectItem itemLabel="Status"/>
+                    <f:selectItems value="#{SearchController.listBorrowStatuses()}"/>
+                </h:selectOneMenu>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group row">
+                <h:commandLink styleClass="col-sm-1 btn btn-link" value="Back" action="librarianConsole"/>
+                <h:commandButton type="button" styleClass="col-sm-1 btn btn-success" value="Search">
+                    <f:ajax listener="#{SearchController.searchResults()}" execute="@form" render="@form modalForm" />
+                </h:commandButton>
+            </div>
+        </h:form>
+    </div>
+
+    <h:form id="modalForm">
+        <h:panelGroup rendered="#{SearchController.customerResults != null or
+        SearchController.authorResults != null or
+        SearchController.bookResults != null or
+        SearchController.borrowResults != null}">
+            <script type="text/javascript">
+                $('#exampleModal').modal(backdrop=true, keyboard=true, focus=true, show=true);
+
+                function closeModal() {
+                    $('#exampleModal').modal('toggle');
+                }
+            </script>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Search results</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h:panelGroup rendered="#{SearchController.customerResults != null}">
+                                <div class="form-group">
+                                    <h5>Found customers:</h5>
+                                    <h:dataTable value="#{SearchController.customerResults}" var="customer" styleClass="table table-striped" headerClass="thead-light">
+                                        <h:column>
+                                            <f:facet name="header">Id</f:facet>
+                                            <h:outputLabel value="#{customer.id}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Name</f:facet>
+                                            <h:outputLabel value="#{customer.name}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Surname</f:facet>
+                                            <h:outputLabel value="#{customer.surname}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{SearchController.authorResults != null}">
+                                <div class="form-group">
+                                    <h5>Found authors:</h5>
+                                    <h:dataTable value="#{SearchController.authorResults}" var="author" styleClass="table table-striped" headerClass="thead-light">
+                                        <h:column>
+                                            <f:facet name="header">Id</f:facet>
+                                            <h:outputLabel value="#{author.id}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Name</f:facet>
+                                            <h:outputLabel value="#{author.name}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Surname</f:facet>
+                                            <h:outputLabel value="#{author.surname}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{SearchController.bookResults != null}">
+                                <div class="form-group">
+                                    <h5>Found books:</h5>
+                                    <h:dataTable value="#{SearchController.bookResults}" var="book" styleClass="table table-striped" headerClass="thead-light">
+                                        <h:column>
+                                            <f:facet name="header">Id</f:facet>
+                                            <h:outputLabel value="#{book.id}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Author</f:facet>
+                                            <h:outputLabel value="#{book.author.name.concat(' '.concat(book.author.surname))}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Title</f:facet>
+                                            <h:outputLabel value="#{book.title}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">ISBN</f:facet>
+                                            <h:outputLabel value="#{book.isbn}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Year</f:facet>
+                                            <h:outputLabel value="#{book.year}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{SearchController.borrowResults != null}">
+                                <div class="form-group">
+                                    <h5>Found borrows:</h5>
+                                    <h:dataTable value="#{SearchController.borrowResults}" var="borrow" styleClass="table table-striped" headerClass="thead-light">
+                                        <h:column>
+                                            <f:facet name="header">Id</f:facet>
+                                            <h:outputLabel value="#{borrow.id}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Customer</f:facet>
+                                            <h:outputLabel value="#{borrow.cusId.id}: #{borrow.cusId.name} #{borrow.cusId.surname}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Book</f:facet>
+                                            <h:outputLabel value="#{borrow.bookId.id}: #{borrow.bookId.author.name} #{borrow.bookId.author.surname} #{borrow.bookId.title}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Borrow date</f:facet>
+                                            <h:outputLabel value="#{borrow.borrowDate}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Return deadline</f:facet>
+                                            <h:outputLabel value="#{borrow.returnDueDate}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Returned date</f:facet>
+                                            <h:outputLabel value="#{borrow.returnedDate}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{SearchController.customerStatisitcs != null}">
+                                <div class="form-group">
+                                    <h5>Customer statistics:</h5>
+                                    <h:dataTable value="#{SearchController.customerStatisitcs}" var="cusStat" styleClass="table table-striped" headerClass="thead-light">
+                                        <h:column>
+                                            <f:facet name="header">Customer</f:facet>
+                                            <h:outputLabel value="#{cusStat.customer.id}: #{cusStat.customer.name} #{cusStat.customer.surname}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Books borrowed</f:facet>
+                                            <h:outputLabel value="#{cusStat.booksBorrowed}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{SearchController.bookStatistics != null}">
+                                <div class="form-group">
+                                    <h5>Books statistics:</h5>
+                                    <h:dataTable value="#{SearchController.bookStatistics}" var="bookStat" styleClass="table table-striped" headerClass="thead-light">
+                                        <h:column>
+                                            <f:facet name="header">Book</f:facet>
+                                            <h:outputLabel value="#{bookStat.book.id}: #{bookStat.book.author.name} #{bookStat.book.author.surname} #{bookStat.book.title}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Borrowed number</f:facet>
+                                            <h:outputLabel value="#{bookStat.borrowedNumber}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{SearchController.authorStatistics != null}">
+                                <div class="form-group">
+                                    <h5>Author statistics:</h5>
+                                    <h:dataTable value="#{SearchController.authorStatistics}" var="authStat" styleClass="table table-striped" headerClass="thead-light">
+                                        <h:column>
+                                            <f:facet name="header">Author</f:facet>
+                                            <h:outputLabel value="#{authStat.author.id}: #{authStat.author.name} #{authStat.author.surname}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">Books borrowed number</f:facet>
+                                            <h:outputLabel value="#{authStat.authorsBooksBorrowed}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </h:panelGroup>
+                        </div>
+                        <div class="modal-footer">
+                            <h:commandButton type="button" styleClass="btn btn-secondary" value="Close" onclick="closeModal()">
+                                <f:ajax listener="#{SearchController.nullAllResults()}" render="@form" />
+                            </h:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </h:form>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</h:body>
+</html>

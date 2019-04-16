@@ -39,9 +39,9 @@
                 <h:inputText value="#{AddBook.newBook.year}" styleClass="form-control" />
             </div>
 
-            <h:commandButton value="Add book" action="librarianConsole" styleClass="btn btn-primary">
+            <h:commandLink value="Add book" action="librarianConsole" styleClass="btn btn-primary">
                 <f:ajax listener="#{AddBook.addBook}" execute="@form" />
-            </h:commandButton>
+            </h:commandLink>
 <!--        </p:panelGrid>-->
     </h:form>
 </h:body>

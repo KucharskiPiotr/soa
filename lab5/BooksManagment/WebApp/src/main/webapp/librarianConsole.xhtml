@@ -20,13 +20,13 @@
         }
     </style>
 
-    <div class="wrapper fadeInDown">
-        <div class="fadeIn first">
-            <h2>Books Managment</h2>
-        </div>
+    <div class="container">
+        <h2>Books Managment</h2>
         <div class="fadeIn second">
             <h:form id="booksSelect" rendered="#{!ShoppingCart.summary}">
-                <h:commandButton value="Add new book" id="addBtn" action="addBookForm" styleClass="btn btn-primary"/>
+                <h:commandLink value="Add new book" action="addBookForm" styleClass="btn btn-link myBtn"/>
+                <h:commandLink value="Browse customers" action="customerBrowser" styleClass="btn btn-link myBtn" />
+                <h:commandLink value="Advanced search" action="searchConsole" styleClass="btn btn-link myBtn" />
 
                 <hr/>
                 <p:dataTable widgetVar="booksTable" value="#{BooksController.books}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}" tableStyleClass="table table-striped">
@@ -70,7 +70,6 @@
             </h:form>
         </div>
 
-        <!-- Remind Passowrd -->
         <div id="formFooter">
             <h:form>
                 <h:commandButton styleClass="btn btn-link" value="Back to login page" action="index"/>

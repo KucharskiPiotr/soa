@@ -15,6 +15,7 @@ import javax.ejb.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Stateless
 @Remote(CustomerManagerRemote.class)
@@ -48,6 +49,15 @@ public class CustomerManagerBean implements CustomerManagerRemote {
 
     @Override
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public List<BorrowData> getCustomerBorrowHistory(int customerId) {
+        return BorrowDAO.getInstance().getAllCustomerBorrows(customerId)
+                .stream()
+                .filter(bo -> BorrowData.BorrowStatus.RETURNED.equals(bo.getStatus()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void borrowBook(int customerId, int bookId) throws BookAlreadyBorrowed {
         if (BorrowDAO.getInstance().isBookBorrowed(bookId)) {
             throw new BookAlreadyBorrowed();
@@ -66,7 +76,7 @@ public class CustomerManagerBean implements CustomerManagerRemote {
         borrow.setStatus(BorrowData.BorrowStatus.BORROWED);
         Calendar c = Calendar.getInstance();
         c.add(Calendar.MONTH, SystemParameters.BORROW_MONTH_TIME);
-        borrow.setReturnDate(c.getTime());
+        borrow.setReturnDueDate(c.getTime());
         return borrow;
     }
 
@@ -74,10 +84,11 @@ public class CustomerManagerBean implements CustomerManagerRemote {
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void returnBook(int customerId, int bookId) throws BookOverdued {
         BorrowData borrowToBeEnded = BorrowDAO.getInstance().getBorrowByCustomerAndBook(customerId, bookId);
-        if (new Date().after(borrowToBeEnded.getReturnDate())) {
+        if (new Date().after(borrowToBeEnded.getReturnDueDate())) {
             throw new BookOverdued();
         }
-        BorrowDAO.getInstance().deleteItem(borrowToBeEnded);
+//        BorrowDAO.getInstance().deleteItem(borrowToBeEnded);
+        BorrowDAO.getInstance().returnBook(bookId, customerId);
     }
 
     @Override

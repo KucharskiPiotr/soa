@@ -15,7 +15,7 @@
     <link href="css/style.css" rel="stylesheet"/>
 </h:head>
 <h:body>
-    <div class="wrapper fadeInDown">
+    <div class="container">
         <div id="formContent">
             <!-- Tabs Titles -->
 
@@ -32,11 +32,12 @@
                 <div class="form-group">
                     <h:inputText required="true" requiredMessage="This field is required" value="#{CustomerController.customer.surname}" styleClass="form-control" a:placeholder="surname"/>
                 </div>
-                <div class="form-group">
-                    <h:inputText value="#{CustomerController.customerPassword}" styleClass="form-control" a:placeholder="password"/>
-                </div>
-                <h:commandButton type="button" styleClass="btn btn-primary" value="Log In" action="customerView">
+<!--                <div class="form-group">-->
+<!--                    <h:inputText value="#{CustomerController.customerPassword}" styleClass="form-control" a:placeholder="password"/>-->
+<!--                </div>-->
+                <h:commandButton id="loginButton" type="button" styleClass="btn btn-primary col-sm-4" value="Log In" action="customerView">
                     <f:ajax listener="#{CustomerController.signIn}" execute="@form"/>
+                    <h:message for="loginButton" />
                 </h:commandButton>
             </h:form>
 

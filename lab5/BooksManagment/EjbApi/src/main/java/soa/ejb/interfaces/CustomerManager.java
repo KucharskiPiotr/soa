@@ -11,6 +11,7 @@ public interface CustomerManager {
     List<CustomerData> getCustomers();
     CustomerData getCustomer(int customerId);
     List<BorrowData> getCurrentlyBorrowedBooks(int customerId);
+    List<BorrowData> getCustomerBorrowHistory(int customerId);
     List<BorrowData> getAllBorrowedBooks(int customerId);
     void borrowBook(int customerId, int bookId) throws BookAlreadyBorrowed;
     void returnBook(int customerId, int bookId) throws BookOverdued;
@@ -18,4 +19,5 @@ public interface CustomerManager {
     void removeCustomer(CustomerData customer);
     void removeCustomer(int customerId);
     void modifyCustomer(CustomerData customer);
+
 }

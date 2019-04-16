@@ -28,8 +28,11 @@ public class BorrowData extends AbstractDTO implements Serializable {
     @Column(name = "BorrowDate", nullable = false)
     private Date borrowDate;
 
-    @Column(name = "ReturnDate", nullable = false)
-    private Date returnDate;
+    @Column(name = "ReturnDueDate", nullable = false)
+    private Date returnDueDate;
+
+    @Column(name = "ReturnedDate")
+    private Date returnedDate;
 
     @Column(name = "Status")
     private String status;      // Possible values: B - borrowed, O - overdue, R - returned
@@ -66,12 +69,12 @@ public class BorrowData extends AbstractDTO implements Serializable {
         this.borrowDate = borrowDate;
     }
 
-    public Date getReturnDate() {
-        return returnDate;
+    public Date getReturnDueDate() {
+        return returnDueDate;
     }
 
-    public void setReturnDate(Date returnDate) {
-        this.returnDate = returnDate;
+    public void setReturnDueDate(Date returnDate) {
+        this.returnDueDate = returnDate;
     }
 
     public String getStatus() {
@@ -80,5 +83,13 @@ public class BorrowData extends AbstractDTO implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getReturnedDate() {
+        return returnedDate;
+    }
+
+    public void setReturnedDate(Date returnedDate) {
+        this.returnedDate = returnedDate;
     }
 }
