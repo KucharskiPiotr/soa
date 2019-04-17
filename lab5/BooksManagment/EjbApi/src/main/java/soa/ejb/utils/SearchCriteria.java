@@ -6,12 +6,20 @@ import soa.ejb.dto.BorrowData;
 import soa.ejb.dto.CustomerData;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class SearchCriteria implements Serializable {
     private CustomerData customer;
     private BorrowData borrow;
     private BookData book;
     private AuthorData author;
+
+    private Date borrowDateFrom;
+    private Date borrowDateTo;
+    private Date returnDeadlineFrom;
+    private Date returnDeadlineTo;
+    private Date returnDateFrom;
+    private Date returnDateTo;
 
     public enum GroupBy {
         BORROWS_QUANTITY("Book popularity"),
@@ -109,5 +117,53 @@ public class SearchCriteria implements Serializable {
 
     public void setAuthor(AuthorData author) {
         this.author = author;
+    }
+
+    public Date getBorrowDateFrom() {
+        return borrowDateFrom;
+    }
+
+    public void setBorrowDateFrom(Date borrowDateFrom) {
+        this.borrowDateFrom = borrowDateFrom;
+    }
+
+    public Date getBorrowDateTo() {
+        return borrowDateTo;
+    }
+
+    public void setBorrowDateTo(Date borrowDateTo) {
+        this.borrowDateTo = borrowDateTo;
+    }
+
+    public Date getReturnDeadlineFrom() {
+        return returnDeadlineFrom;
+    }
+
+    public void setReturnDeadlineFrom(Date returnDeadlineFrom) {
+        this.returnDeadlineFrom = returnDeadlineFrom;
+    }
+
+    public Date getReturnDeadlineTo() {
+        return returnDeadlineTo;
+    }
+
+    public void setReturnDeadlineTo(Date returnDeadlineTo) {
+        this.returnDeadlineTo = returnDeadlineTo;
+    }
+
+    public Date getReturnDateFrom() {
+        return returnDateFrom;
+    }
+
+    public void setReturnDateFrom(Date returnDateFrom) {
+        this.returnDateFrom = returnDateFrom;
+    }
+
+    public Date getReturnDateTo() {
+        return returnDateTo;
+    }
+
+    public void setReturnDateTo(Date returnDateTo) {
+        this.returnDateTo = returnDateTo;
     }
 }

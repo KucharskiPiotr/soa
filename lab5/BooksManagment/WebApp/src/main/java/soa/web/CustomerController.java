@@ -95,4 +95,8 @@ public class CustomerController implements Serializable {
             }
         }
     }
+
+    public void logOut() {
+        customer = new CustomerData();
+    }
 }

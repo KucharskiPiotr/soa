@@ -39,6 +39,7 @@
                 <h:inputText value="#{AddBook.newBook.year}" styleClass="form-control" />
             </div>
 
+            <h:commandLink styleClass="btn btn-link" value="Back" action="librarianConsole"/>
             <h:commandLink value="Add book" action="librarianConsole" styleClass="btn btn-primary">
                 <f:ajax listener="#{AddBook.addBook}" execute="@form" />
             </h:commandLink>

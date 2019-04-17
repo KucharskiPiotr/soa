@@ -15,8 +15,11 @@
     <div class="container">
         <h1>Welcome, #{CustomerController.customer.name} #{CustomerController.customer.surname}</h1>
         <hr/>
-        <h3>Your borrowed books:</h3>
         <h:form id="borrowedBooksForm">
+            <h:commandLink styleClass="btn btn-link" value="Log out" action="index">
+                <f:ajax listener="#{CustomerController.logOut()}"/>
+            </h:commandLink>
+            <h3>Your borrowed books:</h3>
             <h:dataTable value="#{CustomerController.currentlyBorrowedBooks}" var="borrowedBook" styleClass="table table-striped" headerClass="thead-light">
                 <h:column>
                     <h:commandButton type="button" value="Return" styleClass="btn btn-danger">

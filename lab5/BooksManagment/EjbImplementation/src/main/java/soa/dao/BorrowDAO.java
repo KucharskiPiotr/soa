@@ -12,6 +12,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -144,14 +148,29 @@ public class BorrowDAO extends AbstractDAO<BorrowData> {
         if (searchCriteria.getBorrow().getStatus() != null && !searchCriteria.getBorrow().getStatus().isEmpty()) {
             constraints.add(criteriaBuilder.equal(entity.get("status"), searchCriteria.getBorrow().getStatus()));
         }
-        if (searchCriteria.getBorrow().getBorrowDate() != null) {
-            constraints.add(criteriaBuilder.equal(entity.get("borrowDate"), searchCriteria.getBorrow().getBorrowDate()));
+        if (searchCriteria.getBorrowDateFrom() != null) {
+            Date startOfDate = Date.from(LocalDateTime.ofInstant(searchCriteria.getBorrowDateFrom().toInstant(), ZoneId.systemDefault()).with(LocalTime.MIN).atZone(ZoneId.systemDefault()).toInstant());
+            constraints.add(criteriaBuilder.greaterThanOrEqualTo(entity.<Date>get("borrowDate"), startOfDate));
         }
-        if (searchCriteria.getBorrow().getReturnDueDate() != null) {
-            constraints.add(criteriaBuilder.equal(entity.get("returnDueDate"), searchCriteria.getBorrow().getReturnDueDate()));
+        if (searchCriteria.getBorrowDateTo() != null) {
+            Date endOfDate = Date.from(LocalDateTime.ofInstant(searchCriteria.getBorrowDateTo().toInstant(), ZoneId.systemDefault()).with(LocalTime.MAX).atZone(ZoneId.systemDefault()).toInstant());
+            constraints.add(criteriaBuilder.lessThanOrEqualTo(entity.<Date>get("borrowDate"), endOfDate));
         }
-        if (searchCriteria.getBorrow().getReturnedDate() != null) {
-            constraints.add(criteriaBuilder.equal(entity.get("returnedDate"), searchCriteria.getBorrow().getReturnedDate()));
+        if (searchCriteria.getReturnDeadlineFrom() != null) {
+            Date startOfDate = Date.from(LocalDateTime.ofInstant(searchCriteria.getReturnDeadlineFrom().toInstant(), ZoneId.systemDefault()).with(LocalTime.MIN).atZone(ZoneId.systemDefault()).toInstant());
+            constraints.add(criteriaBuilder.greaterThanOrEqualTo(entity.<Date>get("returnDueDate"), startOfDate));
+        }
+        if (searchCriteria.getReturnDeadlineTo() != null) {
+            Date endOfDate = Date.from(LocalDateTime.ofInstant(searchCriteria.getReturnDeadlineTo().toInstant(), ZoneId.systemDefault()).with(LocalTime.MAX).atZone(ZoneId.systemDefault()).toInstant());
+            constraints.add(criteriaBuilder.lessThanOrEqualTo(entity.<Date>get("returnDueDate"), endOfDate));
+        }
+        if (searchCriteria.getReturnDateFrom() != null) {
+            Date startOfDate = Date.from(LocalDateTime.ofInstant(searchCriteria.getReturnDateFrom().toInstant(), ZoneId.systemDefault()).with(LocalTime.MIN).atZone(ZoneId.systemDefault()).toInstant());
+            constraints.add(criteriaBuilder.greaterThanOrEqualTo(entity.<Date>get("returnedDate"), startOfDate));
+        }
+        if (searchCriteria.getReturnDateTo() != null) {
+            Date endOfDate = Date.from(LocalDateTime.ofInstant(searchCriteria.getReturnDateTo().toInstant(), ZoneId.systemDefault()).with(LocalTime.MAX).atZone(ZoneId.systemDefault()).toInstant());
+            constraints.add(criteriaBuilder.lessThanOrEqualTo(entity.<Date>get("returnedDate"), endOfDate));
         }
     }
 

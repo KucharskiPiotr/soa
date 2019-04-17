@@ -8,18 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d45da7ce-b6e4-4849-be7f-582084d8e358" name="Default Changelist" comment="BookManager works">
-      <change afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorStatistic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/BookStatistic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/CustomerStatisitc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/SearchManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/remote/SearchManagerRemote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/utils/SearchCriteria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/SearchManagerBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/src/main/java/soa/web/LibrarianController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/src/main/java/soa/web/SearchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/src/main/java/soa/web/exceptions/CustomerNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/searchConsole.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab3/Books/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab3/Books/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab3/Books/out/artifacts/Books_war_exploded.war/WEB-INF/classes/BooksDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab3/Books/out/artifacts/Books_war_exploded.war/WEB-INF/classes/BooksDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab3/Books/out/artifacts/Books_war_exploded.war/WEB-INF/classes/BooksUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab3/Books/out/artifacts/Books_war_exploded.war/WEB-INF/classes/BooksUtils.class" afterDir="false" />
@@ -40,20 +28,13 @@
       <change beforePath="$PROJECT_DIR$/../../lab4/Theatre/portal/portal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab4/Theatre/portal/portal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab4/Theatre/portal/src/main/java/soa/web/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab4/Theatre/portal/src/main/java/soa/web/controllers/MainPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab4/Theatre/portal/src/main/java/soa/web/controllers/SeatSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab4/Theatre/portal/src/main/java/soa/web/controllers/SeatSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9292e165-d2ac-4011-a776-458b20e0ab59.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9292e165-d2ac-4011-a776-458b20e0ab59.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorData.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/BorrowData.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/BorrowData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/utils/SearchCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/utils/SearchCriteria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EjbApi/target/classes/soa/ejb/dto/BookData.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjbApi/target/classes/soa/ejb/dto/BookData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EjbApi/target/classes/soa/ejb/interfaces/BookManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjbApi/target/classes/soa/ejb/interfaces/BookManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EjbApi/target/classes/soa/ejb/interfaces/remote/BookManagerRemote.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjbApi/target/classes/soa/ejb/interfaces/remote/BookManagerRemote.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AbstractDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AuthorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AuthorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BookDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BorrowDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BorrowDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/CustomerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/CustomerManagerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/CustomerManagerBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/SearchManagerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/SearchManagerBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EjbImplementation/target/EjbImplementation-1.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/target/EjbImplementation-1.0.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EjbImplementation/target/EjbImplementation-1.0/WEB-INF/classes/soa/dao/BookDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/target/EjbImplementation-1.0/WEB-INF/classes/soa/dao/BookDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EjbImplementation/target/EjbImplementation-1.0/WEB-INF/classes/soa/ejb/beans/BookManagerBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/target/EjbImplementation-1.0/WEB-INF/classes/soa/ejb/beans/BookManagerBean.class" afterDir="false" />
@@ -67,10 +48,11 @@
       <change beforePath="$PROJECT_DIR$/EjbImplementation/target/classes/soa/ejb/beans/BookManagerBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjbImplementation/target/classes/soa/ejb/beans/BookManagerBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/src/main/java/soa/web/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/java/soa/web/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/src/main/webapp/addBookForm.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/addBookForm.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/src/main/webapp/customerView.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/customerView.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/src/main/webapp/librarianConsole.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/librarianConsole.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/src/main/webapp/register.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/register.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/src/main/webapp/searchConsole.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/main/webapp/searchConsole.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/target/WebApp-1.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/target/WebApp-1.0.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/target/WebApp-1.0/WEB-INF/classes/soa/web/BooksController.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/target/WebApp-1.0/WEB-INF/classes/soa/web/BooksController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/target/WebApp-1.0/WEB-INF/lib/EjbApi-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/target/WebApp-1.0/WEB-INF/lib/EjbApi-1.0.jar" afterDir="false" />
@@ -158,66 +140,44 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BorrowDAO.java">
+        <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/librarianConsole.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="164" column="21" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1073">
+              <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/SearchManager.java">
+        <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/customerView.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="324">
+              <caret line="18" selection-start-line="18" selection-end-line="20" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/SearchManagerBean.java">
+        <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/index.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="45" column="65" lean-forward="true" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="414">
+              <caret line="29" column="120" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/soa/web/SearchController.java">
+        <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/soa/web/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+            <state relative-caret-position="387">
+              <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2326#2327#0" expanded="true" />
-                <element signature="e#2367#2368#0" expanded="true" />
-                <element signature="e#2570#2571#0" expanded="true" />
-                <element signature="e#2609#2610#0" expanded="true" />
-                <element signature="e#2798#2799#0" expanded="true" />
-                <element signature="e#2835#2836#0" expanded="true" />
-                <element signature="e#2908#2909#0" expanded="true" />
-                <element signature="e#2960#2961#0" expanded="true" />
+                <element signature="e#1353#1354#0" expanded="true" />
+                <element signature="e#1384#1385#0" expanded="true" />
+                <element signature="e#2984#2985#0" expanded="true" />
+                <element signature="e#3009#3010#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/searchConsole.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="26" column="85" selection-start-line="26" selection-start-column="85" selection-end-line="26" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -225,79 +185,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="12" />
+            <state relative-caret-position="126">
+              <caret line="13" column="49" lean-forward="true" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AbstractDAO.java">
+        <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/addBookForm.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="91" column="42" lean-forward="true" selection-start-line="75" selection-start-column="8" selection-end-line="91" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#0#34#1" expanded="true" />
-                <element signature="e#0#45#1" expanded="true" />
-              </folding>
+            <state relative-caret-position="232">
+              <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/CustomerStatisitc.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/register.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-              <folding>
-                <element signature="e#218#219#0" expanded="true" />
-                <element signature="e#249#250#0" expanded="true" />
-                <element signature="e#303#304#0" expanded="true" />
-                <element signature="e#343#344#0" expanded="true" />
-                <element signature="e#384#385#0" expanded="true" />
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/BookStatistic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-              <folding>
-                <element signature="e#199#200#0" expanded="true" />
-                <element signature="e#226#227#0" expanded="true" />
-                <element signature="e#268#269#0" expanded="true" />
-                <element signature="e#300#301#0" expanded="true" />
-                <element signature="e#342#343#0" expanded="true" />
-                <element signature="e#379#380#0" expanded="true" />
-                <element signature="e#440#441#0" expanded="true" />
-                <element signature="e#492#493#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorStatistic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-              <folding>
-                <element signature="e#215#216#0" expanded="true" />
-                <element signature="e#244#245#0" expanded="true" />
-                <element signature="e#292#293#0" expanded="true" />
-                <element signature="e#328#329#0" expanded="true" />
-                <element signature="e#376#377#0" expanded="true" />
-                <element signature="e#419#420#0" expanded="true" />
-                <element signature="e#478#479#0" expanded="true" />
-                <element signature="e#542#543#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="232">
+              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -356,37 +263,37 @@
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/BookManagerBean.java" />
         <option value="$PROJECT_DIR$/WebApp/src/main/java/soa/web/BooksController.java" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/BorrowData.java" />
-        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/customerView.xhtml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9292e165-d2ac-4011-a776-458b20e0ab59/console_1.sql" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/resources/META-INF/persistence.xml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9292e165-d2ac-4011-a776-458b20e0ab59/console_2.sql" />
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/exceptions/CustomerNotFound.java" />
         <option value="$PROJECT_DIR$/WebApp/src/main/java/soa/web/exceptions/CustomerNotFound.java" />
-        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/register.xhtml" />
         <option value="$PROJECT_DIR$/WebApp/src/main/webapp/index.xhtml" />
-        <option value="$PROJECT_DIR$/WebApp/src/main/java/soa/web/CustomerController.java" />
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/CustomerManagerBean.java" />
         <option value="$PROJECT_DIR$/WebApp/src/main/java/soa/web/LibrarianController.java" />
-        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorData.java" />
-        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/librarianConsole.xhtml" />
-        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/addBookForm.xhtml" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/CustomerManager.java" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/remote/SearchManagerRemote.java" />
-        <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/utils/SearchCriteria.java" />
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AbstractDAO.java" />
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AuthorDAO.java" />
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BookDAO.java" />
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/CustomerDAO.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9292e165-d2ac-4011-a776-458b20e0ab59/console.sql" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/SearchManager.java" />
-        <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BorrowDAO.java" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/CustomerStatisitc.java" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/BookStatistic.java" />
         <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorStatistic.java" />
         <option value="$PROJECT_DIR$/WebApp/src/main/java/soa/web/SearchController.java" />
         <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/SearchManagerBean.java" />
+        <option value="$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/utils/SearchCriteria.java" />
         <option value="$PROJECT_DIR$/WebApp/src/main/webapp/searchConsole.xhtml" />
+        <option value="$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BorrowDAO.java" />
+        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/librarianConsole.xhtml" />
+        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/customerView.xhtml" />
+        <option value="$PROJECT_DIR$/WebApp/src/main/java/soa/web/CustomerController.java" />
+        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml" />
+        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/addBookForm.xhtml" />
+        <option value="$PROJECT_DIR$/WebApp/src/main/webapp/register.xhtml" />
       </list>
     </option>
   </component>
@@ -398,261 +305,16 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ejb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ejb" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ejb" type="462c0819:PsiDirectoryNode" />
-              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ejb" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ejb" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ejb" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-              <item name="remote" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbApi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbImplementation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbImplementation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbImplementation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbImplementation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbImplementation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="soa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbImplementation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="soa" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="EjbImplementation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="soa" type="462c0819:PsiDirectoryNode" />
-              <item name="beans" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="helper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BooksManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BooksManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -830,7 +492,10 @@
       <workItem from="1555343485318" duration="17785000" />
       <workItem from="1555402534906" duration="9018000" />
       <workItem from="1555415410994" duration="10752000" />
-      <workItem from="1555443459305" duration="9595000" />
+      <workItem from="1555443459305" duration="9971000" />
+      <workItem from="1555480206627" duration="3598000" />
+      <workItem from="1555492000202" duration="3354000" />
+      <workItem from="1555515575513" duration="3561000" />
     </task>
     <task id="LOCAL-00001" summary="BookManager works">
       <created>1554575617773</created>
@@ -867,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555278294257</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="v1.0 - Library works - all functionality should work, error handling and library console styles should be done.">
+      <created>1555453402295</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1555453402295</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -882,10 +554,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171718000" />
+    <option name="totallyTimeSpent" value="182607000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Persistence" order="0" sideWeight="0.50323623" side_tool="true" weight="0.18923241" />
@@ -895,13 +567,13 @@
       <window_info id="Image Layers" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="UI Designer" order="6" />
-      <window_info active="true" id="Favorites" order="7" sideWeight="0.5016251" side_tool="true" visible="true" weight="0.1785235" />
+      <window_info id="Favorites" order="7" sideWeight="0.5016251" side_tool="true" weight="0.1785235" />
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Hibernate Console" order="0" weight="0.4409534" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.32502708" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.33002833" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -935,13 +607,13 @@
       <window_info id="Image Layers" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="UI Designer" order="6" />
-      <window_info id="Favorites" order="7" sideWeight="0.5016251" side_tool="true" weight="0.17910448" />
+      <window_info id="Favorites" order="7" sideWeight="0.5016251" side_tool="true" weight="0.1785235" />
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Hibernate Console" order="0" weight="0.4409534" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.32502708" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.33002833" />
+      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -953,7 +625,7 @@
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32936078" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="15" weight="0.32827735" />
-      <window_info anchor="bottom" id="Database Console" order="16" visible="true" weight="0.32719547" />
+      <window_info anchor="bottom" id="Database Console" order="16" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
@@ -961,7 +633,7 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="JSF" order="6" />
-      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.16174497" />
+      <window_info anchor="right" id="Database" order="7" weight="0.16174497" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="CDI" order="10" />
@@ -976,10 +648,16 @@
     <MESSAGE value="DTO and DAO added, view updated" />
     <MESSAGE value="DAO synchronized, added EJB service (unimplemented), some page changes, css added but it isnt great" />
     <MESSAGE value="Poprawiony CSS, generalnie troche działa ale nie ma widoku dla klienta, BookDAO do poprawy ot criteria z getAvailableBooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawiony CSS, generalnie troche działa ale nie ma widoku dla klienta, BookDAO do poprawy ot criteria z getAvailableBooks" />
+    <MESSAGE value="v1.0 - Library works - all functionality should work, error handling and library console styles should be done." />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.0 - Library works - all functionality should work, error handling and library console styles should be done." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>Date startOfDate = Date.from(LocalDateTime.ofInstant(searchCriteria.getBorrow().getBorrowDate().toInstant(), ZoneId.systemDefault()).with(LocalTime.MIN).atZone(ZoneId.systemDefault()).toInstant());</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>cq.select(book)</expression-string>
         <language-id>JAVA</language-id>
@@ -988,7 +666,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/test/java/ejb/beans/tests/CustomerManagerTest.java" />
     <entry file="file://$PROJECT_DIR$/EjbImplementation/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="821">
@@ -1155,23 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/register.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/soa/web/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/remote/CustomerManagerRemote.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1179,26 +839,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/BookManagerBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/customerView.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="28" column="99" selection-start-line="28" selection-start-column="99" selection-end-line="28" selection-end-column="99" />
         </state>
       </provider>
     </entry>
@@ -1212,23 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/CustomerManagerBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/index.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1239,13 +862,6 @@
             <element signature="e#512#513#0" expanded="true" />
             <element signature="e#540#541#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/addBookForm.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1301,44 +917,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/utils/SearchCriteria.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#1430#1431#0" expanded="true" />
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
-            <element signature="e#1545#1546#0" expanded="true" />
-            <element signature="e#1580#1581#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1657#1658#0" expanded="true" />
-            <element signature="e#1695#1696#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AuthorDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BookDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="76" column="57" selection-start-line="76" selection-start-column="57" selection-end-line="76" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1355,20 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/librarianConsole.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9292e165-d2ac-4011-a776-458b20e0ab59/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1378,7 +946,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/interfaces/SearchManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="209">
           <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1388,20 +956,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/AbstractDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="91" column="42" lean-forward="true" selection-start-line="75" selection-start-column="8" selection-end-line="91" selection-end-column="42" />
+        <state relative-caret-position="1463">
+          <caret line="91" column="42" selection-start-line="75" selection-start-column="8" selection-end-line="91" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#0#34#1" expanded="true" />
-            <element signature="e#0#45#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BorrowDAO.java">
+    <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/CustomerStatisitc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="164" column="21" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
+        <state relative-caret-position="266">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BookDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="76" column="57" selection-start-line="76" selection-start-column="57" selection-end-line="76" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/SearchManagerBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1098">
+          <caret line="71" column="47" selection-start-line="71" selection-start-column="47" selection-end-line="71" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AbstractDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/utils/SearchCriteria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1422">
+          <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2649#2650#0" expanded="true" />
+            <element signature="e#2707#2708#0" expanded="true" />
+            <element signature="e#2759#2760#0" expanded="true" />
+            <element signature="e#2796#2797#0" expanded="true" />
+            <element signature="e#2831#2832#0" expanded="true" />
+            <element signature="e#2885#2886#0" expanded="true" />
+            <element signature="e#2933#2934#0" expanded="true" />
+            <element signature="e#2976#2977#0" expanded="true" />
+            <element signature="e#3017#3018#0" expanded="true" />
+            <element signature="e#3083#3084#0" expanded="true" />
+            <element signature="e#3143#3144#0" expanded="true" />
+            <element signature="e#3184#3185#0" expanded="true" />
+            <element signature="e#3223#3224#0" expanded="true" />
+            <element signature="e#3285#3286#0" expanded="true" />
+            <element signature="e#3341#3342#0" expanded="true" />
+            <element signature="e#3380#3381#0" expanded="true" />
+            <element signature="e#3417#3418#0" expanded="true" />
+            <element signature="e#3475#3476#0" expanded="true" />
+            <element signature="e#3527#3528#0" expanded="true" />
+            <element signature="e#3564#3565#0" expanded="true" />
+            <element signature="e#3599#3600#0" expanded="true" />
+            <element signature="e#3653#3654#0" expanded="true" />
+            <element signature="e#3701#3702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/BookManagerBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1124#1125#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+            <element signature="e#1311#1312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/CustomerManagerBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1410,58 +1057,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/BookStatistic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="252">
           <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#268#269#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
-            <element signature="e#342#343#0" expanded="true" />
-            <element signature="e#379#380#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/AuthorStatistic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="252">
           <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-          <folding>
-            <element signature="e#215#216#0" expanded="true" />
-            <element signature="e#244#245#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EjbApi/src/main/java/soa/ejb/dto/CustomerStatisitc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="e#218#219#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/soa/web/SearchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
+        <state relative-caret-position="1106">
           <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1477,20 +1087,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/ejb/beans/SearchManagerBean.java">
+    <entry file="file://$PROJECT_DIR$/EjbImplementation/src/main/java/soa/dao/BorrowDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="45" column="65" lean-forward="true" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
+        <state relative-caret-position="-205">
+          <caret line="149" column="9" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#10324#10330#0" expanded="true" />
+            <element signature="e#10715#10721#0" expanded="true" />
+            <element signature="e#11077#11083#0" expanded="true" />
+            <element signature="e#11450#11456#0" expanded="true" />
+            <element signature="e#11830#11836#0" expanded="true" />
+            <element signature="e#12203#12209#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/searchConsole.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="85" selection-start-line="26" selection-start-column="85" selection-end-line="26" selection-end-column="85" />
+        <state relative-caret-position="292">
+          <caret line="164" column="162" lean-forward="true" selection-start-line="164" selection-start-column="104" selection-end-line="164" selection-end-column="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/index.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="29" column="120" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/librarianConsole.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1073">
+          <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/java/soa/web/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1384#1385#0" expanded="true" />
+            <element signature="e#2984#2985#0" expanded="true" />
+            <element signature="e#3009#3010#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/customerView.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" selection-start-line="18" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/customerBrowser.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="13" column="49" lean-forward="true" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/addBookForm.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/src/main/webapp/register.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
         </state>
       </provider>
     </entry>

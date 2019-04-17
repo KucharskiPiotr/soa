@@ -29,9 +29,10 @@
                 <h:commandLink value="Advanced search" action="searchConsole" styleClass="btn btn-link myBtn" />
 
                 <hr/>
-                <p:dataTable widgetVar="booksTable" value="#{BooksController.books}" var="book" emptyMessage="No books found" filteredValue="#{BooksController.filteredItems}" tableStyleClass="table table-striped">
+                <h:dataTable widgetVar="booksTable" value="#{BooksController.books}" var="book" emptyMessage="No books found" styleClass="table table-striped" headerClass="thead-light">
 
-                    <p:column headerText="Operation" styleClass="thead-light">
+                    <h:column>
+                        <f:facet name="header">Operation</f:facet>
                         <div>
                             <h:commandButton value="Delete" styleClass="btn btn-danger myBtn">
                                 <f:ajax listener="#{BooksController.deleteBook(book)}" render="@form"/>
@@ -40,33 +41,39 @@
                                 <f:ajax listener="#{ModifyBook.setBook(book)}" />
                             </h:commandButton>
                         </div>
-                    </p:column>
+                    </h:column>
 
-                    <p:column filterBy="#{book.id}" filterMatchMode="contains" headerText="Id" styleClass="thead-light">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
                         <h:outputLabel value="#{book.id}" />
-                    </p:column>
+                    </h:column>
 
-                    <p:column filterBy="#{book.author.name}" filterMatchMode="contains" headerText="Author name" styleClass="thead-light">
+                    <h:column>
+                        <f:facet name="header">Author's name</f:facet>
                         <h:outputText value="#{book.author.name}" />
-                    </p:column>
+                    </h:column>
 
-                    <p:column filterBy="#{book.author.surname}" filterMatchMode="contains" headerText="Author Surname" styleClass="thead-light">
+                    <h:column>
+                        <f:facet name="header">Author's surname</f:facet>
                         <h:outputText value="#{book.author.surname}" />
-                    </p:column>
+                    </h:column>
 
-                    <p:column filterBy="#{book.title}" filterMatchMode="contains" headerText="Title" styleClass="thead-light">
+                    <h:column>
+                        <f:facet name="header">Title</f:facet>
                         <h:outputText value="#{book.title}" />
-                    </p:column>
+                    </h:column>
 
-                    <p:column filterBy="#{book.isbn}" filterMatchMode="contains" headerText="ISBN" styleClass="thead-light">
+                    <h:column>
+                        <f:facet name="header">ISBN</f:facet>
                         <h:outputText value="#{book.isbn}" />
-                    </p:column>
+                    </h:column>
 
-                    <p:column filterBy="#{book.year}" filterMatchMode="contains" headerText="Year" styleClass="thead-light">
+                    <h:column>
+                        <f:facet name="header">Year</f:facet>
                         <h:outputText value="#{book.year}" />
-                    </p:column>
+                    </h:column>
 
-                </p:dataTable>
+                </h:dataTable>
             </h:form>
         </div>
 

@@ -37,13 +37,13 @@ public class SearchManagerBean implements SearchManagerRemote {
 
     @Override
     public List<BookStatistic> calculateStatForBooks(SearchCriteria searchCriteria) {
-        List<BookData> filteredBooks = BookDAO.getInstance().searchItems(searchCriteria);
+        List<BorrowData> filteredBorrows = BorrowDAO.getInstance().searchItems(searchCriteria);
         List<BookStatistic> stats = new ArrayList<>();
-        for (BookData book : filteredBooks) {
-            if (stats.stream().noneMatch(s -> s.getBook() == book)) {
+        for (BorrowData borrow : filteredBorrows) {
+            if (stats.stream().noneMatch(s -> s.getBook() == borrow.getBookId())) {
                 BookStatistic stat = new BookStatistic();
-                stat.setBook(book);
-                Long borrowsNumber = BorrowDAO.getInstance().getBorrowsNumberForBook(book);
+                stat.setBook(borrow.getBookId());
+                Long borrowsNumber = BorrowDAO.getInstance().getBorrowsNumberForBook(borrow.getBookId());
                 stat.setBorrowedNumber(borrowsNumber);
                 stats.add(stat);
             }

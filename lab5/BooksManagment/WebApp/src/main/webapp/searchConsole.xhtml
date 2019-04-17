@@ -70,21 +70,33 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-1"></div>
-                <h:inputText styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.borrowDate}" a:placeholder="Borrow date (yyyy-MM-dd)">
+                <h:inputText styleClass="col-sm-4 form-control" value="#{SearchController.searchCriteria.borrowDateFrom}" a:placeholder="Borrow date from (yyyy-MM-dd)">
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                </h:inputText>
+                <label class="col-sm-2 col-form-label">to</label>
+                <h:inputText styleClass="col-sm-4 form-control" value="#{SearchController.searchCriteria.borrowDateTo}" a:placeholder="Borrow date to (yyyy-MM-dd)">
                     <f:convertDateTime pattern="yyyy-MM-dd"/>
                 </h:inputText>
                 <div class="col-sm-1"></div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-1"></div>
-                <h:inputText styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.returnDueDate}" a:placeholder="Return deadline (yyyy-MM-dd)">
+                <h:inputText styleClass="col-sm-4 form-control" value="#{SearchController.searchCriteria.returnDeadlineFrom}" a:placeholder="Return deadline from (yyyy-MM-dd)">
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                </h:inputText>
+                <label class="col-sm-2 col-form-label">to</label>
+                <h:inputText styleClass="col-sm-4 form-control" value="#{SearchController.searchCriteria.returnDeadlineTo}" a:placeholder="Return deadline to (yyyy-MM-dd)">
                     <f:convertDateTime pattern="yyyy-MM-dd"/>
                 </h:inputText>
                 <div class="col-sm-1"></div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-1"></div>
-                <h:inputText styleClass="col-sm-10 form-control" value="#{SearchController.searchCriteria.borrow.returnedDate}" a:placeholder="Date of return (yyyy-MM-dd)">
+                <h:inputText styleClass="col-sm-4 form-control" value="#{SearchController.searchCriteria.returnDateFrom}" a:placeholder="Date of return from (yyyy-MM-dd)">
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                </h:inputText>
+                <label class="col-sm-2 col-form-label">to</label>
+                <h:inputText styleClass="col-sm-4 form-control" value="#{SearchController.searchCriteria.returnDateTo}" a:placeholder="Date of return to (yyyy-MM-dd)">
                     <f:convertDateTime pattern="yyyy-MM-dd"/>
                 </h:inputText>
                 <div class="col-sm-1"></div>

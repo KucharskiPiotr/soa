@@ -25,6 +25,7 @@
         <hr/>
 
         <h:form>
+            <h:commandLink styleClass="btn btn-link" value="Back" action="librarianConsole"/>
             <h:dataTable styleClass="table table-striped" headerClass="thead-light" value="#{LibrarianController.listCustomers()}" var="customer">
                 <h:column>
                     <h:commandButton type="button" styleClass="btn btn-info" value="Info">
