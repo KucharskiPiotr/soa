@@ -7,6 +7,11 @@
     <persistence-unit name="AGH-kucharsk">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/AGH-kucharsk</jta-data-source>
+        <class>ejb.dto.UserData</class>
+        <class>ejb.dto.NotificationData</class>
+        <class>ejb.dto.SubscribtionData</class>
+        <class>ejb.dto.TopicData</class>
+        <class>ejb.dto.CommentData</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL55Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

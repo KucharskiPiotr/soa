@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
 @Remote(UserManagerRemote.class)
 public class UserManagerBean implements UserManagerLocal, UserManagerRemote {
     public UserData getUser(Integer userId) {
-        return null;
+        return UserDAO.getInstance().getItem(userId);
     }
 
     public UserData loginUser(String username, String password) throws InvalidLoginCredentialsException {

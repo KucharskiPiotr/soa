@@ -15,6 +15,12 @@
     <artifactId>Forum</artifactId>
     <version>1.0</version>
 
+
+    <properties>
+        <maven.compiler.source>1.10</maven.compiler.source>
+        <maven.compiler.target>1.10</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.jboss.spec.javax.jms</groupId>

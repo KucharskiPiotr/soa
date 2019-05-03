@@ -12,7 +12,7 @@ public class CommentDAO extends AbstractDAO<CommentData> {
         return instance;
     }
 
-    public CommentDAO() {
+    private CommentDAO() {
         super(CommentData.class);
     }
 }

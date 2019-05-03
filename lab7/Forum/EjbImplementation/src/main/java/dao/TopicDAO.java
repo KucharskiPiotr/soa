@@ -11,7 +11,7 @@ public class TopicDAO extends AbstractDAO<TopicData> {
         }
         return instance;
     }
-    public TopicDAO() {
+    private TopicDAO() {
         super(TopicData.class);
     }
 }

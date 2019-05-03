@@ -11,7 +11,7 @@ public class UserData extends AbstractDTO {
     @GeneratedValue
     private int id;
 
-    @Column(name = "USERNAME")
+    @Column(name = "USERNAME", unique = true)
     private String username;
 
     @Column(name = "PASSWORD")

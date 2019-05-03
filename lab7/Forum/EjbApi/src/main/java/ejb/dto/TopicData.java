@@ -60,4 +60,20 @@ public class TopicData extends AbstractDTO {
     public void setCreator(UserData creator) {
         this.creator = creator;
     }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Date getRemoveDate() {
+        return removeDate;
+    }
+
+    public void setRemoveDate(Date removeDate) {
+        this.removeDate = removeDate;
+    }
 }
