@@ -80,4 +80,9 @@ public class SubscribtionManagerBean implements SubscribtionManagerLocal, Subscr
     public void addNotification(NotificationData notification) {
         NotificationDAO.getInstance().addItem(notification);
     }
+
+    @Override
+    public boolean isUserSubscribed(Integer userId, Integer topicId) {
+        return SubscribtionDAO.getInstance().getUsersForSubscribtion(topicId).stream().anyMatch(u -> u.getId() == userId);
+    }
 }

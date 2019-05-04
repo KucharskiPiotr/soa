@@ -10,6 +10,9 @@
     <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <!-- orange alternative: #ff8223 -->
     <!-- pink xDD : #e519ca -->
+
+</h:head>
+<h:body>
     <style type="text/css">
         h1::first-letter {
             color: #28a745;
@@ -18,10 +21,12 @@
         .navPad {
             margin-left: 10px;
         }
-    </style>
-</h:head>
-<h:body>
 
+        .commentTable td:nth-child(1) {
+            font-style: italic;
+            width: 25%;
+        }
+    </style>
     <div class="container">
         <div class="navbar">
             <h1>CoolForum</h1>
@@ -32,30 +37,50 @@
                 <h:panelGroup rendered="#{User.user != null}">
                     <h:outputLabel value="Logged as #{User.user.username}"/>
                     <h:commandButton value="Log out" styleClass="btn btn-success navPad">
-                        <f:ajax listener="#{User.setUser(null)}" render="@form" />
+                        <f:ajax listener="#{User.setUser(null)}" render="@form commentsList" />
                     </h:commandButton>
                 </h:panelGroup>
             </h:form>
         </div>
 
-        <h:form id="threads">
-            <h:dataTable styleClass="table table-striped" value="#{Thread.listTopics()}" var="topic">
+        <hr/>
+
+        <h:form id="commentsList">
+            <h:panelGroup styleClass="row" rendered="#{User.user != null and Subscription.isUserSubscribedToTopic(User.user.id, Thread.selectedTopic.id)}">
+                <h:outputLabel value="You have subscribed to this thread" styleClass="col-sm-3"/>
+                <h:commandButton value="Unsubscribe" styleClass="btn btn-success col-sm-2">
+                    <f:ajax listener="#{Subscription.unsubscribeTopic(User.user.id, Thread.selectedTopic.id)}" render="@form"/>
+                </h:commandButton>
+                <div class="col-sm-1"></div>
+                <h:commandButton value="Add comment" styleClass="btn btn-success col-sm-2">
+                    <f:ajax listener="#{Thread.prepareComment(User.user)}" render="addCommentModalForm"/>
+                </h:commandButton>
+            </h:panelGroup>
+            <h:panelGroup styleClass="row" rendered="#{User.user != null and not(Subscription.isUserSubscribedToTopic(User.user.id, Thread.selectedTopic.id))}">
+                <h:outputLabel value="You can subscribe to this thread" styleClass="col-sm-3"/>
+                <h:commandButton value="Subscribe" styleClass="btn btn-success col-sm-2">
+                    <f:ajax listener="#{Subscription.subscribeTopic(User.user.id, Thread.selectedTopic.id)}" render="@form"/>
+                </h:commandButton>
+                <div class="col-sm-1"></div>
+                <h:commandButton value="Add comment" styleClass="btn btn-success col-sm-2">
+                    <f:ajax listener="#{Thread.prepareComment(User.user)}" render="addCommentModalForm"/>
+                </h:commandButton>
+            </h:panelGroup>
+
+            <br/>
+
+            <h:dataTable styleClass="table table-striped commentTable" value="#{Thread.listComments()}" var="comment">
                 <h:column>
-                    <h:commandLink styleClass="btn btn-success" value="Show" action="topic">
-                        <f:ajax listener="#{Thread.setSelectedTopic(topic)}"/>
-                    </h:commandLink>
+                    <h:outputLabel value="#{comment.commentator.username}" style="font-weight: bold"/><br/>
+                    <h:outputLabel value="Posted on: #{comment.date}"/>
                 </h:column>
                 <h:column>
-                    <h:outputLabel value="#{topic.title}" />
-                </h:column>
-                <h:column>
-                    <h:outputLabel value="by #{topic.creator.username}" />
-                </h:column>
-                <h:column>
-                    <h:outputLabel value="created on #{topic.creationDate}" />
+                    <h:outputLabel value="#{comment.content}"/>
                 </h:column>
             </h:dataTable>
         </h:form>
+
+
     </div>
 
     <h:form id="loginModalForm">
@@ -87,7 +112,43 @@
                                     <f:ajax listener="#{User.setUser(null)}" render="@form" />
                                 </h:commandButton>
                                 <h:commandButton type="button" styleClass="btn btn-success" value="Log in" onclick="closeModal()">
-                                    <f:ajax listener="#{User.login()}" execute="@form" render="@form threads nav" />
+                                    <f:ajax listener="#{User.login()}" execute="@form" render="@form commentsList nav" />
+                                </h:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </h:form>
+
+    <h:form id="addCommentModalForm">
+        <h:panelGroup rendered="#{Thread.newComment != null and Thread.newComment.content == null}">
+            <script type="text/javascript">
+                $('#exampleModal').modal(backdrop=true, keyboard=true, focus=true, show=true);
+
+                function closeModal() {
+                    $('#exampleModal').modal('toggle');
+                }
+            </script>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">New comment</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <h:inputTextarea styleClass="form-control" value="#{Thread.newComment.content}" a:placeholder="Comment content" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <h:form>
+                                <h:commandButton type="button" styleClass="btn btn-secondary" value="Cancel" onclick="closeModal()">
+                                    <f:ajax listener="#{Thread.setNewComment(null)}" render="@form" />
+                                </h:commandButton>
+                                <h:commandButton type="button" styleClass="btn btn-success" value="Publish" onclick="closeModal()">
+                                    <f:ajax listener="#{Thread.publishComment()}" execute="@form" render="@form commentsList" />
                                 </h:commandButton>
                             </h:form>
                         </div>

@@ -10,4 +10,5 @@ public interface SubscribtionManager {
     List<NotificationData> getNotifications(Integer userId);
     List<TopicData> getSubscribedTopics(Integer userId);
     void unsubscribeTopic(Integer userId, Integer topicId);
+    boolean isUserSubscribed(Integer userId, Integer topicId);
 }

@@ -22,20 +22,20 @@ public class SubscribtionDAO extends AbstractDAO<SubscribtionData> {
     }
 
     public List<TopicData> getUserSubscribedTopics(Integer userId) {
-        TypedQuery<TopicData> query = entityManager.createQuery("SELECT data.topic FROM SubscribtionData data where data.user = :userId", TopicData.class);
+        TypedQuery<TopicData> query = entityManager.createQuery("SELECT data.topic FROM SubscribtionData data where data.user.id = :userId", TopicData.class);
         query.setParameter("userId", userId);
         return query.getResultList();
     }
 
     public SubscribtionData getSubscribtion(Integer userId, Integer topicId) {
-        TypedQuery<SubscribtionData> query = entityManager.createQuery("SELECT data FROM SubscribtionData data where data.user = :userId and data.topic = :topicId", SubscribtionData.class);
+        TypedQuery<SubscribtionData> query = entityManager.createQuery("SELECT data FROM SubscribtionData data where data.user.id = :userId and data.topic.id = :topicId and data.status = 'A'", SubscribtionData.class);
         query.setParameter("userId", userId);
         query.setParameter("topicId", topicId);
         return query.getSingleResult();
     }
 
     public List<UserData> getUsersForSubscribtion(Integer topicId) {
-        TypedQuery<UserData> query = entityManager.createQuery("SELECT data.user FROM SubscribtionData data where data.topic.id = :topicId", UserData.class);
+        TypedQuery<UserData> query = entityManager.createQuery("SELECT data.user FROM SubscribtionData data where data.topic.id = :topicId and data.status = 'A'", UserData.class);
         query.setParameter("topicId", topicId);
         return query.getResultList();
     }

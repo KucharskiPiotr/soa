@@ -56,6 +56,7 @@ public class TopicManagerBean implements TopicManagerLocal, TopicManagerRemote {
         comment.setContent(content);
         comment.setCommentator(user);
         comment.setTopic(topic);
+        comment.setDate(new Date());
         CommentDAO.getInstance().addItem(comment);
         subscribtionManager.publishCommentMessage(topic);
     }
@@ -64,5 +65,9 @@ public class TopicManagerBean implements TopicManagerLocal, TopicManagerRemote {
         CommentData comment = CommentDAO.getInstance().getItem(commentId);
         comment.setContent(content);
         CommentDAO.getInstance().updateItem(comment);
+    }
+
+    public List<CommentData> getCommentsOnTopic(Integer topicId) {
+        return CommentDAO.getInstance().getCommentsOnTopic(topicId);
     }
 }
