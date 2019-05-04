@@ -5,7 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <!-- orange alternative: #ff8223 -->
@@ -50,7 +51,7 @@
                 <h:panelGroup rendered="#{User.user != null}">
                     <h:outputLabel value="Logged as #{User.user.username}"/>
                     <h:commandButton value="Log out" styleClass="btn btn-success">
-                        <f:ajax listener="#{User.setUser(null)}" render="@form threads" />
+                        <f:ajax listener="#{User.setUser(null)}" render="@form threads notificationsForm" />
                     </h:commandButton>
                 </h:panelGroup>
             </h:form>
@@ -58,11 +59,11 @@
 
         <hr/>
 
-        <h:form id="threads">
+        <h:form id="notificationsForm">
             <h:panelGroup rendered="#{User.user != null}">
                 <h3>Your notifications</h3>
                 <div class="scrollableTable">
-                    <h:dataTable styleClass="table table-striped notificationTable mb-0" value="#{Subscription.listNotifications(User.user.id)}" var="notification">
+                    <h:dataTable id="notifs" styleClass="table table-striped notificationTable mb-0" value="#{Subscription.listNotifications(User.user.id)}" var="notification">
                         <h:column>
                             <h:outputLabel value="#{notification.date}"/>
                         </h:column>
@@ -71,10 +72,27 @@
                         </h:column>
                     </h:dataTable>
                 </div>
+                <hr/>
             </h:panelGroup>
+        </h:form>
 
-            <hr/>
+        <h:form>
+            <h:commandButton id="refreshNotifications" styleClass="notificationsRefresh">
+                <f:ajax render="notificationsForm"/>
+            </h:commandButton>
+            <script type="text/javascript">
+                var button = document.getElementsByClassName("notificationsRefresh")[0];
+                button.type = 'hidden';
+                setInterval(function () {
+                    var childrenQuantity = document.getElementById('notificationsForm').children.length;
+                    if (childrenQuantity > 2) {
+                        button.click();
+                    }
+                }, 10000);
+            </script>
+        </h:form>
 
+        <h:form id="threads">
             <h:commandButton value="Add new topic" styleClass="btn btn-success" rendered="#{User.user != null}">
                 <f:ajax listener="#{Thread.prepareTopic()}" render="addTopicModalForm" />
             </h:commandButton>
@@ -129,7 +147,7 @@
                                     <f:ajax listener="#{User.setUser(null)}" render="@form" />
                                 </h:commandButton>
                                 <h:commandButton type="button" styleClass="btn btn-success" value="Log in" onclick="closeModal()">
-                                    <f:ajax listener="#{User.login()}" execute="@form" render="@form threads nav" />
+                                    <f:ajax listener="#{User.login()}" execute="@form" render="@form threads nav notificationsForm" />
                                 </h:commandButton>
                             </h:form>
                         </div>
@@ -168,7 +186,7 @@
                                     <f:ajax listener="#{User.setUser(null)}" render="@form" />
                                 </h:commandButton>
                                 <h:commandButton type="button" styleClass="btn btn-success" value="Register" onclick="closeModal()">
-                                    <f:ajax listener="#{User.register()}" execute="@form" render="@form threads nav" />
+                                    <f:ajax listener="#{User.register()}" execute="@form" render="@form threads nav notificationsForm" />
                                 </h:commandButton>
                             </h:form>
                         </div>
@@ -204,7 +222,7 @@
                                     <f:ajax listener="#{Thread.setSelectedTopic(null)}" render="@form" />
                                 </h:commandButton>
                                 <h:commandButton type="button" styleClass="btn btn-success" value="Create" onclick="closeModal()">
-                                    <f:ajax listener="#{Thread.addTopic(User.user.id)}" execute="@form" render="@form threads" />
+                                    <f:ajax listener="#{Thread.addTopic(User.user.id)}" execute="@form" render="@form threads notificationsForm" />
                                 </h:commandButton>
                             </h:form>
                         </div>
