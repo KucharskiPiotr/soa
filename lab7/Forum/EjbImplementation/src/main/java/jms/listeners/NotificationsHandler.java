@@ -32,11 +32,13 @@ public class NotificationsHandler implements MessageListener {
             if (msgObj instanceof NewCommentMessage) {
                 List<UserData> users = subscribtionManager.getUsersSubscribedToTopic(((NewCommentMessage) msgObj).getTopicId());
                 users.forEach(u -> {
-                    NotificationData notification = new NotificationData();
-                    notification.setDate(new Date());
-                    notification.setContent(((NewCommentMessage) msgObj).getMessage());
-                    notification.setUser(u);
-                    subscribtionManager.addNotification(notification);
+                    if (u.getId() != ((NewCommentMessage) msgObj).getAuthorId()) {
+                        NotificationData notification = new NotificationData();
+                        notification.setDate(new Date());
+                        notification.setContent(((NewCommentMessage) msgObj).getMessage());
+                        notification.setUser(u);
+                        subscribtionManager.addNotification(notification);
+                    }
                 });
             }
         } catch (JMSException e) {

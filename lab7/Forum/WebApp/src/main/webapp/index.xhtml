@@ -10,6 +10,8 @@
     <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <!-- orange alternative: #ff8223 -->
     <!-- pink xDD : #e519ca -->
+</h:head>
+<h:body>
     <style type="text/css">
         h1::first-letter {
             color: #28a745;
@@ -18,9 +20,22 @@
         .navPad {
             margin-left: 10px;
         }
+
+        #nav input, #nav label {
+            margin-left: 10px;
+        }
+
+        .notificationTable td:nth-child(1) {
+            width: 25%;
+        }
+
+        .scrollableTable {
+            position: relative;
+            height: 200px;
+            overflow: auto;
+            display: block;
+        }
     </style>
-</h:head>
-<h:body>
 
     <div class="container">
         <div class="navbar">
@@ -29,16 +44,43 @@
                 <h:commandButton value="Log in" styleClass="btn btn-success" rendered="#{User.user == null}">
                     <f:ajax listener="#{User.prepareUserToLogin()}" render="loginModalForm"/>
                 </h:commandButton>
+                <h:commandButton value="Register" styleClass="btn btn-success" rendered="#{User.user == null}">
+                    <f:ajax listener="#{User.prepareUserToLogin()}" render="registerModalForm" />
+                </h:commandButton>
                 <h:panelGroup rendered="#{User.user != null}">
                     <h:outputLabel value="Logged as #{User.user.username}"/>
-                    <h:commandButton value="Log out" styleClass="btn btn-success navPad">
-                        <f:ajax listener="#{User.setUser(null)}" render="@form" />
+                    <h:commandButton value="Log out" styleClass="btn btn-success">
+                        <f:ajax listener="#{User.setUser(null)}" render="@form threads" />
                     </h:commandButton>
                 </h:panelGroup>
             </h:form>
         </div>
 
+        <hr/>
+
         <h:form id="threads">
+            <h:panelGroup rendered="#{User.user != null}">
+                <h3>Your notifications</h3>
+                <div class="scrollableTable">
+                    <h:dataTable styleClass="table table-striped notificationTable mb-0" value="#{Subscription.listNotifications(User.user.id)}" var="notification">
+                        <h:column>
+                            <h:outputLabel value="#{notification.date}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputLabel value="#{notification.content}"/>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </h:panelGroup>
+
+            <hr/>
+
+            <h:commandButton value="Add new topic" styleClass="btn btn-success" rendered="#{User.user != null}">
+                <f:ajax listener="#{Thread.prepareTopic()}" render="addTopicModalForm" />
+            </h:commandButton>
+
+            <br/>
+
             <h:dataTable styleClass="table table-striped" value="#{Thread.listTopics()}" var="topic">
                 <h:column>
                     <h:commandLink styleClass="btn btn-success" value="Show" action="topic">
@@ -88,6 +130,81 @@
                                 </h:commandButton>
                                 <h:commandButton type="button" styleClass="btn btn-success" value="Log in" onclick="closeModal()">
                                     <f:ajax listener="#{User.login()}" execute="@form" render="@form threads nav" />
+                                </h:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </h:form>
+
+    <h:form id="registerModalForm">
+        <h:panelGroup rendered="#{User.user != null and User.user.username == null}">
+            <script type="text/javascript">
+                $('#exampleModal').modal(backdrop=true, keyboard=true, focus=true, show=true);
+
+                function closeModal() {
+                    $('#exampleModal').modal('toggle');
+                }
+            </script>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Register</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <h:inputText styleClass="form-control" value="#{User.user.username}" a:placeholder="Username" />
+                            </div>
+                            <div class="form-group row">
+                                <h:inputSecret styleClass="form-control " value="#{User.user.password}" a:placeholder="Password" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <h:form>
+                                <h:commandButton type="button" styleClass="btn btn-secondary" value="Cancel" onclick="closeModal()">
+                                    <f:ajax listener="#{User.setUser(null)}" render="@form" />
+                                </h:commandButton>
+                                <h:commandButton type="button" styleClass="btn btn-success" value="Register" onclick="closeModal()">
+                                    <f:ajax listener="#{User.register()}" execute="@form" render="@form threads nav" />
+                                </h:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </h:form>
+
+    <h:form id="addTopicModalForm">
+        <h:panelGroup rendered="#{Thread.selectedTopic != null}">
+            <script type="text/javascript">
+                $('#exampleModal').modal(backdrop=true, keyboard=true, focus=true, show=true);
+
+                function closeModal() {
+                    $('#exampleModal').modal('toggle');
+                }
+            </script>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add new topic</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <h:inputText styleClass="form-control" value="#{Thread.selectedTopic.title}" a:placeholder="Title" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <h:form>
+                                <h:commandButton type="button" styleClass="btn btn-secondary" value="Cancel" onclick="closeModal()">
+                                    <f:ajax listener="#{Thread.setSelectedTopic(null)}" render="@form" />
+                                </h:commandButton>
+                                <h:commandButton type="button" styleClass="btn btn-success" value="Create" onclick="closeModal()">
+                                    <f:ajax listener="#{Thread.addTopic(User.user.id)}" execute="@form" render="@form threads" />
                                 </h:commandButton>
                             </h:form>
                         </div>

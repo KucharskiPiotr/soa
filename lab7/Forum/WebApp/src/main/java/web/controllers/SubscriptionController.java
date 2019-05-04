@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Named("Subscription")
@@ -21,7 +22,9 @@ public class SubscriptionController implements Serializable {
     }
 
     public List<NotificationData> listNotifications(Integer userId) {
-        return subscribtionManager.getNotifications(userId);
+        if (userId != null)
+            return subscribtionManager.getNotifications(userId);
+        return new ArrayList<>();
     }
 
     public void unsubscribeTopic(Integer userId, Integer topicId) {

@@ -58,7 +58,7 @@ public class TopicManagerBean implements TopicManagerLocal, TopicManagerRemote {
         comment.setTopic(topic);
         comment.setDate(new Date());
         CommentDAO.getInstance().addItem(comment);
-        subscribtionManager.publishCommentMessage(topic);
+        subscribtionManager.publishCommentMessage(topic, userId);
     }
 
     public void editComment(Integer commentId, String content) {

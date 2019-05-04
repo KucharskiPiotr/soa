@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class NewCommentMessage implements Serializable {
     private Integer topicId;
+    private Integer authorId;
     private String message;
 
     public Integer getTopicId() {
@@ -20,5 +21,13 @@ public class NewCommentMessage implements Serializable {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 }

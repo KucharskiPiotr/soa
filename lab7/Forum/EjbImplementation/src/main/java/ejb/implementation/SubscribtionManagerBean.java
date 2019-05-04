@@ -61,10 +61,11 @@ public class SubscribtionManagerBean implements SubscribtionManagerLocal, Subscr
     }
 
     @Override
-    public void publishCommentMessage(TopicData topicData) {
+    public void publishCommentMessage(TopicData topicData, Integer userId) {
         NewCommentMessage commentMessage = new NewCommentMessage();
         commentMessage.setTopicId(topicData.getId());
         commentMessage.setMessage(NEW_COMMENT_MSG.replace(TITLE_PLACEHOLDER, topicData.getTitle()));
+        commentMessage.setAuthorId(userId);
         try {
             context.createProducer().send(topic, commentMessage);
         } catch (Exception e) {

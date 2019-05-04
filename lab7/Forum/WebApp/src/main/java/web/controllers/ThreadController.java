@@ -57,4 +57,13 @@ public class ThreadController implements Serializable {
     public void publishComment() {
         topicManager.comment(newComment.getCommentator().getId(), newComment.getTopic().getId(), newComment.getContent());
     }
+
+    public void prepareTopic() {
+        selectedTopic = new TopicData();
+    }
+
+    public void addTopic(Integer creatorId) {
+        topicManager.createNewTopic(creatorId, selectedTopic.getTitle());
+        selectedTopic = null;
+    }
 }

@@ -21,7 +21,7 @@ public class NotificationDAO extends AbstractDAO<NotificationData> {
     }
 
     public List<NotificationData> getUserNotifications(int userId) {
-        TypedQuery query = entityManager.createQuery("SELECT n FROM NotificationData n WHERE n.user = :userId", NotificationData.class);
+        TypedQuery query = entityManager.createQuery("SELECT n FROM NotificationData n WHERE n.user.id = :userId ORDER BY n.date DESC", NotificationData.class);
         query.setParameter("userId", userId);
         return query.getResultList();
     }

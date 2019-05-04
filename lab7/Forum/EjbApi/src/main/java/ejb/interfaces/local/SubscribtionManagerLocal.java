@@ -10,7 +10,7 @@ import java.util.List;
 
 @Local
 public interface SubscribtionManagerLocal extends SubscribtionManager {
-    void publishCommentMessage(TopicData topic);
+    void publishCommentMessage(TopicData topic, Integer userId);
     List<UserData> getUsersSubscribedToTopic(Integer topicId);
     void addNotification(NotificationData notification);
 }
