@@ -1,5 +1,6 @@
 package soa.ejb.beans;
 
+import soa.dao.BookDAO;
 import soa.dao.BorrowDAO;
 import soa.dao.CustomerDAO;
 import soa.ejb.dto.BookData;
@@ -8,7 +9,10 @@ import soa.ejb.dto.CustomerData;
 import soa.ejb.exceptions.BookAlreadyBorrowed;
 import soa.ejb.exceptions.BookOverdued;
 import soa.ejb.interfaces.local.BookManagerLocal;
+import soa.ejb.interfaces.local.CustomerManagerLocal;
+import soa.ejb.interfaces.local.jms.MessageSenderLocal;
 import soa.ejb.interfaces.remote.CustomerManagerRemote;
+import soa.utils.BookUtils;
 import soa.utils.SystemParameters;
 
 import javax.ejb.*;
@@ -19,10 +23,14 @@ import java.util.stream.Collectors;
 
 @Stateless
 @Remote(CustomerManagerRemote.class)
-public class CustomerManagerBean implements CustomerManagerRemote {
+@Local(CustomerManagerLocal.class)
+public class CustomerManagerBean implements CustomerManagerRemote, CustomerManagerLocal {
 
     @EJB
     BookManagerLocal bookManager;
+
+    @EJB
+    private MessageSenderLocal messageSender;
 
     @Override
     public List<BorrowData> getAllBorrowedBooks(int customerId) {
@@ -59,13 +67,14 @@ public class CustomerManagerBean implements CustomerManagerRemote {
     @Override
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void borrowBook(int customerId, int bookId) throws BookAlreadyBorrowed {
-        if (BorrowDAO.getInstance().isBookBorrowed(bookId)) {
+        BookData book = bookManager.getBook(bookId);
+        if (BorrowDAO.getInstance().isBookBorrowed(bookId) && book.getStatus().equals(BookUtils.BookStatus.AVAILABLE)) {
             throw new BookAlreadyBorrowed();
         }
         CustomerData customer = getCustomer(customerId);
-        BookData book = bookManager.getBook(bookId);
         BorrowData borrow = prepareNewBorrow(customer, book);
         BorrowDAO.getInstance().addItem(borrow);
+        book.setStatus(BookUtils.BookStatus.BORROWED);
     }
 
     private BorrowData prepareNewBorrow(CustomerData customer, BookData book) {
@@ -87,8 +96,12 @@ public class CustomerManagerBean implements CustomerManagerRemote {
         if (new Date().after(borrowToBeEnded.getReturnDueDate())) {
             throw new BookOverdued();
         }
+        BookData returnedBook = BookDAO.getInstance().getItem(bookId);
+        returnedBook.setStatus(BookUtils.BookStatus.AVAILABLE);
 //        BorrowDAO.getInstance().deleteItem(borrowToBeEnded);
-        BorrowDAO.getInstance().returnBook(bookId, customerId);
+        BorrowDAO.getInstance().returnBook(returnedBook.getId(), customerId);
+        BookDAO.getInstance().updateItem(returnedBook);
+        messageSender.sendBookReturnInfo(returnedBook);
     }
 
     @Override
@@ -113,5 +126,15 @@ public class CustomerManagerBean implements CustomerManagerRemote {
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void modifyCustomer(CustomerData customer) {
         CustomerDAO.getInstance().updateItem(customer);
+    }
+
+    @Override
+    public List<CustomerData> listCustomersSubscribedToBook(Integer bookId) {
+        return CustomerDAO.getInstance().listCustomersSubscribedToBook(bookId);
+    }
+
+    @Override
+    public CustomerData login(String username, String password) {
+        return CustomerDAO.getInstance().loginCustomer(username, password);
     }
 }

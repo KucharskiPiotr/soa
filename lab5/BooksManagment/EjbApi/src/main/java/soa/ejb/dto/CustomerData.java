@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Customers")
 @Access(AccessType.FIELD)
-public class CustomerData extends AbstractDTO implements Serializable {
+public class CustomerData extends AbstractDTO {
     @Id
     @GeneratedValue
     @Column(name = "Id",  nullable = false)
@@ -17,6 +17,39 @@ public class CustomerData extends AbstractDTO implements Serializable {
 
     @Column(name = "Surname", nullable = false)
     private String surname;
+
+    @Column(name = "Login", nullable = false, unique = true)
+    private String login;
+
+    @Column(name = "Password", nullable = false)
+    private String password;
+
+    @Column(name = "NewBookNotif", nullable = false)
+    private Boolean newBookNotification;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getNewBookNotification() {
+        return newBookNotification;
+    }
+
+    public void setNewBookNotification(Boolean newBookNotification) {
+        this.newBookNotification = newBookNotification;
+    }
 
     public int getId() {
         return id;

@@ -3,6 +3,8 @@ package soa.dao;
 import soa.ejb.dto.CustomerData;
 import soa.ejb.utils.SearchCriteria;
 
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -20,7 +22,18 @@ public class CustomerDAO extends AbstractDAO<CustomerData> {
             instance = new CustomerDAO();
         }
         return instance;
-    };
+    }
+
+    public CustomerData loginCustomer(String username, String password) {
+        TypedQuery<CustomerData> query = entityManager.createQuery("SELECT data FROM CustomerData data WHERE data.login = :login AND data.password = :passwd", CustomerData.class);
+        query.setParameter("login", username);
+        query.setParameter("passwd", password);
+        try {
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 
     @Override
     protected void addBookConstraints(SearchCriteria searchCriteria, CriteriaBuilder criteriaBuilder, Root<CustomerData> entity, List<Predicate> constraints) {
@@ -47,6 +60,12 @@ public class CustomerDAO extends AbstractDAO<CustomerData> {
 
     @Override
     protected void addAuthorConstraints(SearchCriteria searchCriteria, CriteriaBuilder criteriaBuilder, Root<CustomerData> entity, List<Predicate> constraints) {
+    }
+
+    public List<CustomerData> listCustomersSubscribedToBook(Integer bookId) {
+        TypedQuery<CustomerData> query = entityManager.createQuery("SELECT data.customer FROM NotificationData data WHERE data.book.id = :bookId", CustomerData.class);
+        query.setParameter("bookId", bookId);
+        return query.getResultList();
     }
 }
 

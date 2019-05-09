@@ -3,6 +3,11 @@ package soa.utils;
 import java.util.*;
 
 public class BookUtils {
+    public interface BookStatus {
+        String BORROWED = "BORROWED";
+        String AVAILABLE = "AVAILABLE";
+    }
+
     private Set<String> bookTypes;
     private Set<String> currencies;
 

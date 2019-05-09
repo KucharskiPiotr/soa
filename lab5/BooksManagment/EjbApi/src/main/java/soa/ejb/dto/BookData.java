@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Entity()
 @Table(name = "Books")
 @Access(AccessType.FIELD)
-public class BookData extends AbstractDTO implements Serializable {
+public class BookData extends AbstractDTO {
 
     @Id
     @GeneratedValue
@@ -26,6 +26,17 @@ public class BookData extends AbstractDTO implements Serializable {
 
     @Column(name = "Year")
     private String year;
+
+    @Column(name = "Status")
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public BookData() {}
 

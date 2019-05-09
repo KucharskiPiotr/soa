@@ -49,7 +49,19 @@ public class BooksController implements Serializable {
         init();
     }
 
-    public List<BookData> getAvailableBooks() {
-        return bookManager.getAvailableBooks();
+    public List<BookData> getAllBooks() {
+        return bookManager.getBooks();
+    }
+
+    public void subscribe(Integer bookId, Integer userId) {
+        bookManager.subscribeToBook(bookId, userId);
+    }
+
+    public void unsubscribe(Integer bookId, Integer userId) {
+        bookManager.unsubscribeBook(bookId, userId);
+    }
+
+    public boolean isUserSubscribed(Integer bookId, Integer userId) {
+        return bookManager.isCustomerSubscribed(bookId, userId);
     }
 }

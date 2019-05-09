@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Authors")
 @Access(AccessType.FIELD)
-public class AuthorData extends AbstractDTO implements Serializable {
+public class AuthorData extends AbstractDTO {
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)

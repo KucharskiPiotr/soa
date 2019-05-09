@@ -11,6 +11,8 @@
         <class>soa.ejb.dto.CustomerData</class>
         <class>soa.ejb.dto.AuthorData</class>
         <class>soa.ejb.dto.BorrowData</class>
+        <class>soa.ejb.dto.NotificationData</class>
+        <class>soa.ejb.dto.SubscriptionData</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL55Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

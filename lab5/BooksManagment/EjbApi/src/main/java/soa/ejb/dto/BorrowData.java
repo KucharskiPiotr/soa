@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "Borrows")
 @Access(AccessType.FIELD)
-public class BorrowData extends AbstractDTO implements Serializable {
+public class BorrowData extends AbstractDTO {
 
     public interface BorrowStatus {
         String BORROWED = "B";

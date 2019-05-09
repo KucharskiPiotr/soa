@@ -27,10 +27,10 @@
             <!-- Login Form -->
             <h:form>
                 <div class="form-group">
-                    <h:inputText required="true" requiredMessage="This field is required" value="#{CustomerController.customer.name}" styleClass="form-control" a:placeholder="name"/>
+                    <h:inputText required="true" requiredMessage="This field is required" value="#{CustomerController.customer.login}" styleClass="form-control" a:placeholder="login"/>
                 </div>
                 <div class="form-group">
-                    <h:inputText required="true" requiredMessage="This field is required" value="#{CustomerController.customer.surname}" styleClass="form-control" a:placeholder="surname"/>
+                    <h:inputSecret required="true" requiredMessage="This field is required" value="#{CustomerController.customer.password}" styleClass="form-control" a:placeholder="password"/>
                 </div>
 <!--                <div class="form-group">-->
 <!--                    <h:inputText value="#{CustomerController.customerPassword}" styleClass="form-control" a:placeholder="password"/>-->

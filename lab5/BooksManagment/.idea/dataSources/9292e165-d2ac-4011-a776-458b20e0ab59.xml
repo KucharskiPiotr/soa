@@ -807,159 +807,258 @@
     <table id="202" parent="3" name="Books"/>
     <table id="203" parent="3" name="Borrows"/>
     <table id="204" parent="3" name="Customers"/>
-    <table id="205" parent="3" name="hibernate_sequence"/>
-    <column id="206" parent="201" name="Id">
+    <table id="205" parent="3" name="Notifications"/>
+    <table id="206" parent="3" name="Subscriptions"/>
+    <table id="207" parent="3" name="hibernate_sequence"/>
+    <column id="208" parent="201" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="207" parent="201" name="Name">
+    <column id="209" parent="201" name="Name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="208" parent="201" name="Surname">
+    <column id="210" parent="201" name="Surname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="209" parent="201" name="PRIMARY">
+    <key id="211" parent="201" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="210" parent="202" name="Id">
+    <column id="212" parent="202" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="211" parent="202" name="ISBN">
+    <column id="213" parent="202" name="ISBN">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="212" parent="202" name="Title">
+    <column id="214" parent="202" name="Title">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="213" parent="202" name="Year">
+    <column id="215" parent="202" name="Year">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="202" name="author_Id">
+    <column id="216" parent="202" name="author_Id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="215" parent="202" name="FK5ow0rw4w3y36khdws0bkmye1d">
+    <column id="217" parent="202" name="Status">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="218" parent="202" name="FK5ow0rw4w3y36khdws0bkmye1d">
       <ColNames>author_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="216" parent="202" name="PRIMARY">
+    <key id="219" parent="202" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="217" parent="202" name="FK5ow0rw4w3y36khdws0bkmye1d">
+    <foreign-key id="220" parent="202" name="FK5ow0rw4w3y36khdws0bkmye1d">
       <ColNames>author_Id</ColNames>
       <RefSchemaName>kuchars2</RefSchemaName>
       <RefTableName>Authors</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <column id="218" parent="203" name="Id">
+    <column id="221" parent="203" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="219" parent="203" name="BorrowDate">
+    <column id="222" parent="203" name="BorrowDate">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="220" parent="203" name="ReturnDueDate">
+    <column id="223" parent="203" name="ReturnDueDate">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="221" parent="203" name="ReturnedDate">
+    <column id="224" parent="203" name="ReturnedDate">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="222" parent="203" name="Status">
+    <column id="225" parent="203" name="Status">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="223" parent="203" name="bookId_Id">
+    <column id="226" parent="203" name="bookId_Id">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="224" parent="203" name="cusId_Id">
+    <column id="227" parent="203" name="cusId_Id">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="225" parent="203" name="FKfb2vc4awuvx27ibiq0hmka0y5">
+    <index id="228" parent="203" name="FKfb2vc4awuvx27ibiq0hmka0y5">
       <ColNames>bookId_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="226" parent="203" name="FKcyehqsl9faci5aft2k27vsgww">
+    <index id="229" parent="203" name="FKcyehqsl9faci5aft2k27vsgww">
       <ColNames>cusId_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="227" parent="203" name="PRIMARY">
+    <key id="230" parent="203" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="228" parent="203" name="FKfb2vc4awuvx27ibiq0hmka0y5">
+    <foreign-key id="231" parent="203" name="FKfb2vc4awuvx27ibiq0hmka0y5">
       <ColNames>bookId_Id</ColNames>
       <RefSchemaName>kuchars2</RefSchemaName>
       <RefTableName>Books</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <foreign-key id="229" parent="203" name="FKcyehqsl9faci5aft2k27vsgww">
+    <foreign-key id="232" parent="203" name="FKcyehqsl9faci5aft2k27vsgww">
       <ColNames>cusId_Id</ColNames>
       <RefSchemaName>kuchars2</RefSchemaName>
       <RefTableName>Customers</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <column id="230" parent="204" name="Id">
+    <column id="233" parent="204" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="231" parent="204" name="Name">
+    <column id="234" parent="204" name="Name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="204" name="Surname">
+    <column id="235" parent="204" name="Surname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="233" parent="204" name="PRIMARY">
+    <key id="236" parent="204" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="234" parent="205" name="next_val">
+    <column id="237" parent="205" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="238" parent="205" name="Date">
+      <Position>2</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="239" parent="205" name="Message">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="205" name="book_Id">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="241" parent="205" name="customer_Id">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="242" parent="205" name="FKhkvbu43l0ii0e7escw1y4508x">
+      <ColNames>book_Id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="243" parent="205" name="FKlijl3tb3jsshiuiegubjg44rc">
+      <ColNames>customer_Id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="244" parent="205" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="245" parent="205" name="FKhkvbu43l0ii0e7escw1y4508x">
+      <ColNames>book_Id</ColNames>
+      <RefSchemaName>kuchars2</RefSchemaName>
+      <RefTableName>Books</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="246" parent="205" name="FKlijl3tb3jsshiuiegubjg44rc">
+      <ColNames>customer_Id</ColNames>
+      <RefSchemaName>kuchars2</RefSchemaName>
+      <RefTableName>Customers</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="247" parent="206" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="248" parent="206" name="book_Id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="249" parent="206" name="customer_Id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="250" parent="206" name="FK4vvxsjw86mnnf3nd02galodc4">
+      <ColNames>book_Id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="251" parent="206" name="FK8m5t97nre1eavpprrdo3njpdb">
+      <ColNames>customer_Id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="252" parent="206" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="253" parent="206" name="FK4vvxsjw86mnnf3nd02galodc4">
+      <ColNames>book_Id</ColNames>
+      <RefSchemaName>kuchars2</RefSchemaName>
+      <RefTableName>Books</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="254" parent="206" name="FK8m5t97nre1eavpprrdo3njpdb">
+      <ColNames>customer_Id</ColNames>
+      <RefSchemaName>kuchars2</RefSchemaName>
+      <RefTableName>Customers</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="255" parent="207" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>

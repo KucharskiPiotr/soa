@@ -12,31 +12,44 @@
     <link href="css/style.css" rel="stylesheet"/>
 </h:head>
 <h:body>
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <!-- Tabs Titles -->
+    <div class="container">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Tabs Titles -->
 
-            <!-- Icon -->
-            <div class="fadeIn first">
-                <h2>Register</h2>
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <h2>Register</h2>
+                </div>
+
+                <!-- Login Form -->
+                <h:form>
+                    <div class="form-group">
+                        <h:inputText required="true" requiredMessage="Name is required" value="#{CustomerController.customer.name}" styleClass="form-control" a:placeholder="name"/>
+                    </div>
+                    <div class="form-group">
+                        <h:inputText required="true" requiredMessage="Surname is required" value="#{CustomerController.customer.surname}" styleClass="form-control" a:placeholder="surname"/>
+                    </div>
+                    <div class="form-group">
+                        <h:inputText required="true" requiredMessage="Login is required" value="#{CustomerController.customer.login}" styleClass="form-control" a:placeholder="login"/>
+                    </div>
+                    <div class="form-group">
+                        <h:inputSecret required="true" requiredMessage="Password is required" value="#{CustomerController.customer.password}" styleClass="form-control" a:placeholder="password"/>
+                    </div>
+                    <div class="form-check">
+                        <h:selectBooleanCheckbox styleClass="form-check-input" value="#{CustomerController.customer.newBookNotification}" />
+                        <h:outputLabel styleClass="form-check-label" value="Shall we notify you about new books?"/>
+                    </div>
+                    <br/>
+                    <!--                <div class="form-group">-->
+                    <!--                    <h:inputText value="#{CustomerController.customerPassword}" styleClass="form-control" a:placeholder="password"/>-->
+                    <!--                </div>-->
+                    <a class="btn btn-link" href="index.xhtml">Back</a>
+                    <h:commandButton type="button" styleClass="btn btn-primary" value="Sign up" action="index">
+                        <f:ajax listener="#{CustomerController.signUp}" execute="@form"/>
+                    </h:commandButton>
+                </h:form>
             </div>
-
-            <!-- Login Form -->
-            <h:form>
-                <div class="form-group">
-                    <h:inputText required="true" requiredMessage="Name is required" value="#{CustomerController.customer.name}" styleClass="form-control" a:placeholder="name"/>
-                </div>
-                <div class="form-group">
-                    <h:inputText required="true" requiredMessage="Surname is required" value="#{CustomerController.customer.surname}" styleClass="form-control" a:placeholder="surname"/>
-                </div>
-<!--                <div class="form-group">-->
-<!--                    <h:inputText value="#{CustomerController.customerPassword}" styleClass="form-control" a:placeholder="password"/>-->
-<!--                </div>-->
-                <a class="btn btn-link" href="index.xhtml">Back</a>
-                <h:commandButton type="button" styleClass="btn btn-primary" value="Sign up" action="index">
-                    <f:ajax listener="#{CustomerController.signUp}" execute="@form"/>
-                </h:commandButton>
-            </h:form>
         </div>
     </div>
 </h:body>

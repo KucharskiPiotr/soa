@@ -15,6 +15,11 @@
     <div class="container">
         <h1>Welcome, #{CustomerController.customer.name} #{CustomerController.customer.surname}</h1>
         <hr/>
+
+        <h:form id="status">
+            <h:outputLabel value="#{Test.asd}" />
+        </h:form>
+
         <h:form id="borrowedBooksForm">
             <h:commandLink styleClass="btn btn-link" value="Log out" action="index">
                 <f:ajax listener="#{CustomerController.logOut()}"/>
@@ -63,38 +68,51 @@
 
         <h3>Books available:</h3>
         <h:form id="booksAvailableForm">
-            <h:dataTable value="#{BooksController.availableBooks}" var="availableBook" styleClass="table table-striped" headerClass="thead-light">
+            <h:dataTable value="#{BooksController.allBooks}" var="libraryBook" styleClass="table table-striped" headerClass="thead-light">
                 <h:column>
                     <f:facet name="header">Operation</f:facet>
                     <h:commandButton type="button"
                             class="btn btn-success"
-                            value="Borrow">
-                        <f:ajax listener="#{CustomerController.setSelectedBook(availableBook)}" render="@form modalForm" />
+                            value="Borrow"
+                            rendered="#{libraryBook.status == 'AVAILABLE'}">
+                        <f:ajax listener="#{CustomerController.setSelectedBook(libraryBook)}" render="@form modalForm" />
+                    </h:commandButton>
+                    <h:commandButton type="button"
+                                     class="btn btn-info"
+                                     value="Notify when returned"
+                                     rendered="#{libraryBook.status == 'BORROWED' and not(BooksController.isUserSubscribed(libraryBook.id, CustomerController.customer.id))}">
+                        <f:ajax listener="#{BooksController.subscribe(libraryBook.id, CustomerController.customer.id)}" render="@form modalForm" />
+                    </h:commandButton>
+                    <h:commandButton type="button"
+                                     class="btn btn-secondary"
+                                     value="Unsubscribe"
+                                     rendered="#{libraryBook.status == 'BORROWED' and BooksController.isUserSubscribed(libraryBook.id, CustomerController.customer.id)}">
+                        <f:ajax listener="#{BooksController.unsubscribe(libraryBook.id, CustomerController.customer.id)}" render="@form modalForm" />
                     </h:commandButton>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Id</f:facet>
-                    <h:outputLabel value="#{availableBook.id}" />
+                    <h:outputLabel value="#{libraryBook.id}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">Author name</f:facet>
-                    <h:outputLabel value="#{availableBook.author.name}" />
+                    <h:outputLabel value="#{libraryBook.author.name}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">Author surname</f:facet>
-                    <h:outputLabel value="#{availableBook.author.surname}"/>
+                    <h:outputLabel value="#{libraryBook.author.surname}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Title</f:facet>
-                    <h:outputLabel value="#{availableBook.title}" style="font-weight: bolder"/>
+                    <h:outputLabel value="#{libraryBook.title}" style="font-weight: bolder"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">ISBN</f:facet>
-                    <h:outputLabel value="#{availableBook.isbn}" />
+                    <h:outputLabel value="#{libraryBook.isbn}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">Year</f:facet>
-                    <h:outputLabel value="#{availableBook.year}"/>
+                    <h:outputLabel value="#{libraryBook.year}"/>
                 </h:column>
             </h:dataTable>
         </h:form>
@@ -130,8 +148,8 @@
                             <h:commandButton type="button" styleClass="btn btn-secondary" value="Resign" onclick="closeModal()">
                                 <f:ajax listener="#{CustomerController.setSelectedBook(null)}" render="@form" />
                             </h:commandButton>
-                            <h:commandButton type="button" styleClass="btn btn-success" value="Confirm" onclick="closeModal()">
-                                <f:ajax listener="#{CustomerController.borrowSelectedBook}" render="@form borrowedBooksForm booksAvailableForm" />
+                            <h:commandButton type="button" styleClass="btn btn-success" value="Confirm" onclick="closeModal()" actionListener="#{CustomerController.borrowSelectedBook}">
+                                <f:ajax render="@form borrowedBooksForm booksAvailableForm status" delay="1000"/>
                             </h:commandButton>
                         </div>
                     </div>

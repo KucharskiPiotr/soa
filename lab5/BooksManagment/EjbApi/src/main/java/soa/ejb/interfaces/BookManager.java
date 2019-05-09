@@ -12,4 +12,7 @@ public interface BookManager {
     void addBook(BookData newBook);
     void removeBook(BookData book);
     void modifyBook(BookData book);
+    void subscribeToBook(Integer bookId, Integer customerId);
+    void unsubscribeBook(Integer bookId, Integer customerId);
+    boolean isCustomerSubscribed(Integer bookId, Integer customerId);
 }
